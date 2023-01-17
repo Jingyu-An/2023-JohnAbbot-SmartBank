@@ -1,0 +1,19 @@
+Tuesday, January 17, 2023:
+Daily Srum Meeting:
+
+1. Team leader. Create project Git repository, shared by all team members and senditaway@hotmail.com.
+Keep the repository PRIVATE.
+You MUST add the proper content of .gitignore file *before* creating a project in it:
+For VisualStudio: https://raw.githubusercontent.com/github/gitignore/master/VisualStudio.gitignore
+
+DO NOT USE BRANCHES functionality in Git.
+
+2. Watch "Scrum in 10 minutes" video https://www.youtube.com/watch?v=XU0llRltyFM
+
+3. In Git project working copy create "dailyscrum.txt" file that will be shared by both team members.
+Do your first Daily Scrum right here right now planning on what each of you will do by tomorrow morning.
+
+Make sure to follow Daily Scrum example and instructions provided.
+Make sure to commit that file to repository every day starting today.
+
+All steps completed.
