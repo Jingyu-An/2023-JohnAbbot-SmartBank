@@ -15,8 +15,8 @@ namespace Day07AzureDb
         public int other_acount_id { get; set; }
         public DateTime date_operation { get; set; }
         public string description { get; set; }
-        
-        public enum transfer_type_enum { Cash = 0, Check=1}
+
+        public enum transfer_type_enum { Cash = 0, Check = 1 }
         [EnumDataType(typeof(transfer_type_enum))]
         public transfer_type_enum transfer_Type { get; set; }
 

@@ -68,6 +68,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Globals.cs" />
+    <Compile Include="Operation.cs" />
+    <Compile Include="OperationDbContext.cs" />
     <Compile Include="SmartBankingDbContext.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="AccountInformation.xaml.cs">
