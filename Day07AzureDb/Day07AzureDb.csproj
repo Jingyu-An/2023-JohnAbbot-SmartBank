@@ -73,14 +73,12 @@
     <Compile Include="Globals.cs" />
     <Compile Include="SmartBankingDbContext.cs" />
     <Compile Include="Users.cs" />
+    <Page Include="AccountInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Compile Include="Transactions.xaml.cs">
       <DependentUpon>Transactions.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AccountInformation.xaml.cs">
-      <DependentUpon>AccountInformation.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Calculator.xaml.cs">
-      <DependentUpon>Calculator.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
