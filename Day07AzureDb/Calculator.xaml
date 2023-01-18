@@ -9,6 +9,59 @@
       Title="Calculator">
 
     <Grid>
-        <TextBlock Text="Calculator Page" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+        <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
+            <StackPanel Orientation="Vertical" Width="300" Margin="20 40 10 10">
+                <Label Content="Mortgage principal amount"/>
+                <TextBox x:Name="TbxMortgageAmount"/>
+                <Label Content="Interest rate"/>
+                <ComboBox x:Name="ComboboxRate"/>
+                <Label Content="Amortization period"/>
+                <ComboBox x:Name="ComboboxPreiod" />
+                <Label Content="Payment frequency"/>
+                <ComboBox x:Name="ComboboxPayFreq"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="400">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Label}" x:Key="mystyle">
+                        <Setter Property="Width" Value="150"/>
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="Margin" Value="0 10"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Label Content="My Payment Result" HorizontalAlignment="Left" 
+                       FontSize="25" FontWeight="Bold" Margin="10 10 0 0"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Mortgage amount" 
+                           Style="{StaticResource mystyle}"/>
+                    <TextBlock Text="{Binding Amount, Mode=TwoWay, StringFormat={}{0:C0}}"
+                               FontSize="15" Margin="0 10" VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Interest rate" 
+                           Style="{StaticResource mystyle}"/>
+                    <Label Content="{Binding ElementName=ComboboxRate, Path=SelectedItem}"
+                           Style="{StaticResource mystyle}" Width="230"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Amortization period"
+                           Style="{StaticResource mystyle}"/>
+                    <Label Content="{Binding ElementName=ComboboxPreiod, Path=SelectedItem}"
+                           Style="{StaticResource mystyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Payment frequency"
+                           Style="{StaticResource mystyle}"/>
+                    <Label Content="{Binding ElementName=ComboboxPayFreq, Path=SelectedItem}"
+                           Style="{StaticResource mystyle}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Payment amount"
+                           Style="{StaticResource mystyle}"/>
+                    <Label Content="{Binding }" FontSize="15" Margin="0 10" Width="80"/>
+                    <TextBlock Text="{Binding ElementName=ComboboxPayFreq, Path=SelectedItem, StringFormat=/  {0}}"
+                               FontSize="15" Margin="0 10" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>
