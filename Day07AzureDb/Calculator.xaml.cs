@@ -16,28 +16,13 @@ using System.Windows.Shapes;
 namespace Day07AzureDb
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Calculator.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Calculator : Page
     {
-        public MainWindow()
+        public Calculator()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Main.Content = "Page1";
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Main.Content = "Page2";
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            Main.Content = new Calculator();
         }
     }
 }
