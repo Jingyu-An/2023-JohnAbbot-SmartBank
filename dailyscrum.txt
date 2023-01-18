@@ -68,16 +68,21 @@ Daily Srum Meeting:
 
 Patrick:
 1. 
-2.
-3.
+2. Plan until next scrum:
+	- Account information page
+	- Export File 
+3. 
 
 Jingyu
 1.
-2.
+2. Plan until next scrum:
+	- Menu and Status bar
+	- Calculator page
 3.
 
 Hyunju
 1.
-2.
+2. Plan until next scrum:
+	- Transaction page
 3.
 

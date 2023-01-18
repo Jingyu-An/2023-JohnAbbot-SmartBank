@@ -24,5 +24,20 @@ namespace Day07AzureDb
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new AccountInformation();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Transactions();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Main.Content = new Calculator();
+        }
     }
 }

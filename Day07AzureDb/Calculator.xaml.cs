@@ -16,25 +16,13 @@ using System.Windows.Shapes;
 namespace Day07AzureDb
 {
     /// <summary>
-    /// Interaction logic for Transactions.xaml
+    /// Interaction logic for Calculator.xaml
     /// </summary>
-    public partial class Transactions : Page
+    public partial class Calculator : Page
     {
-        public Transactions()
+        public Calculator()
         {
             InitializeComponent();
-<<<<<<< HEAD
         }
-=======
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Send money successfully!");
-        }
-
-
->>>>>>> eb522a6bdb4c08b3077a07d4e9b27cc279b10332
     }
 }
