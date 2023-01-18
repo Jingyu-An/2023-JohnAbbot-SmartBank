@@ -27,12 +27,12 @@ namespace Day07AzureDb
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = "Page1";
+            Main.Content = new AccountInformation();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Main.Content = "Page2";
+            Main.Content = new Transactions();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
