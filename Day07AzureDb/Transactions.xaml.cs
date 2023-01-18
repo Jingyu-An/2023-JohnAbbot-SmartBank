@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Day07AzureDb.Operation;
 
 namespace Day07AzureDb
 {
@@ -23,6 +24,19 @@ namespace Day07AzureDb
         public Transactions()
         {
             InitializeComponent();
+            try
+            {
+                Globals.dbContext = new SmartBankingDbContext(); // Exceptions
+                Operation operations = new Operation(0, 0, 0, "text", 0);
+                Globals.dbContext.Operations.Add(operations);
+                Globals.dbContext.SaveChanges();
+
+                MessageBox.Show(Globals.dbContext.Operations.ToList().ToString());
+               
+            }catch(Exception ex)
+            {
+                MessageBox.Show("error");
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
