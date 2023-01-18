@@ -9,6 +9,6 @@
       Title="AccountInformation">
 
     <Grid>
-        
+        <Button Content="Button" HorizontalAlignment="Left" Margin="92,178,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

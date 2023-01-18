@@ -24,5 +24,7 @@ namespace Day07AzureDb
         {
             InitializeComponent();
         }
+
+       
     }
 }
