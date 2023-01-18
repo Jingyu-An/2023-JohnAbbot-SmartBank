@@ -6,27 +6,26 @@
       xmlns:local="clr-namespace:Day07AzureDb"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+              mc:Ignorable="d" Loaded="Page_Loaded" Closing="Page_Closing"
       Title="Transactions">
 
     <Grid>
-        <Label HorizontalAlignment="Left" Height="28" Margin="48,38,0,0" VerticalAlignment="Top" Width="84">
-            <Label Content="From" HorizontalAlignment="Left" Height="28" VerticalAlignment="Top" Width="84" RenderTransformOrigin="0.26,0.549"/>
-        </Label>
-        <Label Content="Amount" HorizontalAlignment="Left" Height="28" Margin="55,178,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Account" HorizontalAlignment="Left" Height="28" Margin="55,128,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Sender" HorizontalAlignment="Left" Height="28" Margin="55,85,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Description" HorizontalAlignment="Left" Height="28" Margin="55,306,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Recipient" HorizontalAlignment="Left" Height="28" Margin="55,263,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="To" HorizontalAlignment="Left" Height="28" Margin="55,235,0,0" VerticalAlignment="Top" Width="84"/>
-        <Button Content="Send Money" HorizontalAlignment="Left" Height="32" Margin="64,372,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click"/>
-        <Label Content="Sender" HorizontalAlignment="Left" Height="28" Margin="55,85,0,0" VerticalAlignment="Top" Width="84" RenderTransformOrigin="2.085,0.773"/>
-        <Label Content="Sender's name automatically show here." HorizontalAlignment="Left" Height="28" Margin="192,85,0,0" VerticalAlignment="Top" Width="320" RenderTransformOrigin="2.085,0.773"/>
-        <ComboBox HorizontalAlignment="Left" Height="21" Margin="192,135,0,0" VerticalAlignment="Top" Width="238"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="192,178,0,0" TextWrapping="Wrap" Text="$" VerticalAlignment="Top" Width="238"/>
-        <ComboBox HorizontalAlignment="Left" Height="21" Margin="192,135,0,0" VerticalAlignment="Top" Width="238"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="192,178,0,0" TextWrapping="Wrap" Text="$" VerticalAlignment="Top" Width="238"/>
+        <Label HorizontalAlignment="Left" Height="28" Margin="48,-2,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Amount" HorizontalAlignment="Left" Height="28" Margin="55,138,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Account" HorizontalAlignment="Left" Height="28" Margin="55,88,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Sender" HorizontalAlignment="Left" Height="28" Margin="55,45,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Description" HorizontalAlignment="Left" Height="28" Margin="55,266,0,0" VerticalAlignment="Top" Width="84"/>
+        <Label Content="Recipient" HorizontalAlignment="Left" Height="28" Margin="55,223,0,0" VerticalAlignment="Top" Width="84"/>
+        <Button Content="Send Money" HorizontalAlignment="Left" Height="32" Margin="477,250,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click"/>
+         <Label Content="Sender's name automatically show here." HorizontalAlignment="Left" Height="28" Margin="192,45,0,0" VerticalAlignment="Top" Width="320" RenderTransformOrigin="2.085,0.773"/>
+        <ComboBox HorizontalAlignment="Left" Height="21" Margin="192,95,0,0" VerticalAlignment="Top" Width="238"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="192,138,0,0" TextWrapping="Wrap" Text="$" VerticalAlignment="Top" Width="238"/>
+        <ComboBox HorizontalAlignment="Left" Height="21" Margin="192,95,0,0" VerticalAlignment="Top" Width="238"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="192,138,0,0" TextWrapping="Wrap" Text="$" VerticalAlignment="Top" Width="238"/>
 
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="192,269,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
-        <TextBox HorizontalAlignment="Left" Height="22" Margin="192,306,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="192,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
+        <TextBox HorizontalAlignment="Left" Height="22" Margin="192,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
     </Grid>
+   
+    
 </Page>

@@ -23,11 +23,14 @@ namespace Day07AzureDb
         public Transactions()
         {
             InitializeComponent();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("Send money successfully!");
         }
+
+
     }
 }
