@@ -52,15 +52,5 @@ namespace Day07AzureDb
             this.Close();
         }
 
-        private void ChangeBackgound(object sender, RoutedEventArgs e)
-        {
-            TabControl tabControl = sender as TabControl;
-            TabItem item = tabControl.SelectedValue as TabItem;
-            if (item.Name == "TabPage1") 
-            {
-                item.Background = Brushes.Transparent;
-            }
-        }
-
     }
 }
