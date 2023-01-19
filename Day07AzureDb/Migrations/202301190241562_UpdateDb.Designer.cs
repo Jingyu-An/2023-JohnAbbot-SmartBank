@@ -7,13 +7,13 @@ namespace Day07AzureDb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class UpdateDb : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateDb));
         
         string IMigrationMetadata.Id
         {
-            get { return "202301181818544_InitialCreate"; }
+            get { return "202301190241562_UpdateDb"; }
         }
         
         string IMigrationMetadata.Source

@@ -15,7 +15,7 @@ namespace Day07AzureDb
         public DbSet<Users> UserEmployees { get; set; }
 
 
-        //public DbSet<Operation> Operations { get; set; }
+        public DbSet<Operation> Operations { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
