@@ -29,24 +29,19 @@ namespace Day07AzureDb
         private float rate = 0;
         private float year = 1;
         private float freq = 1;
-        public List<string> OfferRateList { get; set; } = new List<string>()
-        {
-            "3 Year Fixed Rate Mortgage 3.0%",
-            "5 Year Fixed Rate Mortgate 3.5%"
-        };
 
         public List<string> FixedRateList { get; set; } = new List<string>()
         {
-            "1 Year Closed 7.0%",
-            "2 Year Closed 5.0%",
-            "3 Year Closed 5.0%",
-            "4 Year Closed 5.5%",
-            "5 Year Closed 6.0%",
-            "6 Year Closed 6.2%",
-            "7 Year Closed 6.4%",
-            "8 Year Closed 6.6%",
-            "9 Year Closed 6.8%",
-            "10 Year Closed 7.0%"
+            "1 Year 7.0%",
+            "2 Year 5.0%",
+            "3 Year 5.0%",
+            "4 Year 5.5%",
+            "5 Year 6.0%",
+            "6 Year 6.2%",
+            "7 Year 6.4%",
+            "8 Year 6.6%",
+            "9 Year 6.8%",
+            "10 Year 7.0%"
         };
 
         public Dictionary<string, float> RateMap = new Dictionary<string, float>();
@@ -96,20 +91,6 @@ namespace Day07AzureDb
             Regex regex = new Regex("([0-9].[0-9])");
             try
             {
-                ComboboxRate.Items.Add(new ComboBoxItem()
-                {
-                    Content = "Spacial Offers",
-                    IsEnabled = false,
-                });
-
-                OfferRateList.ForEach(offer =>
-                {
-                    Match match = regex.Match(offer);
-                    ComboboxRate.Items.Add(offer);
-                    RateMap.Add(offer,float.Parse(match.ToString(), CultureInfo.InvariantCulture.NumberFormat));
-                });
-                ComboboxRate.Items.Add(new Separator());
-
                 ComboboxRate.Items.Add(new ComboBoxItem()
                 {
                     Content = "Fixed Rate Mortgages",
