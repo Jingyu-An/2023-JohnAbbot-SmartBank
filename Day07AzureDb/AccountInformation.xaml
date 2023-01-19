@@ -8,7 +8,40 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AccountInformation">
 
-    <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="92,178,0,0" VerticalAlignment="Top"/>
-    </Grid>
+    <Border Margin="15,15,15,15">
+
+        <Grid Background="white">
+            <Button Name="BtnAdd" Content="AddUser" HorizontalAlignment="Left" Margin="681,169,0,0" VerticalAlignment="Top" Click="BtnAdd_Click"/>
+
+            <Button Name="BtnSaveFile" Content="BtnSaveFiles" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="430,192,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="BtnSaveFile_Click"/>
+            
+            <Button Name="BtnUpdate" Content="Update" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="430,241,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="BtnUpdate_click"/>
+
+            <Label Name="LblFullName" FontWeight="DemiBold"  Content="Full Name" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="159"/>
+
+            <Label Name="LblEmail" FontWeight="DemiBold"  Content="Email" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="159"/>
+            <Label Name="LblFullPhoneNumber" FontWeight="DemiBold"  Content="Phone Number" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" Width="159"/>
+
+            <Label Name="LblPassword" FontWeight="DemiBold"  Content="Password" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Width="159"/>
+
+            <Label Name="LblAddress" FontWeight="DemiBold"  Content="Address" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="426,90,0,0" VerticalAlignment="Top" Width="159"/>
+            <Label Name="LblAccountNumber" FontWeight="DemiBold"  Content="Account Number" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="426,141,0,0" VerticalAlignment="Top" Width="159"/>
+
+            <TextBox HorizontalAlignment="Left" Margin="174,93,0,0" Name="TbxFullName" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
+
+            <TextBox HorizontalAlignment="Left" Margin="174,144,0,0" Name="TbxEmail" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
+
+            <TextBox HorizontalAlignment="Left" Margin="174,195,0,0" Name="TbxPhoneNumber" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
+
+            <TextBox HorizontalAlignment="Left" Margin="174,244,0,0" Name="TbxPassword" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
+
+            <TextBox HorizontalAlignment="Left" Margin="590,93,0,0" Name="TbxAddress" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
+
+            <TextBox HorizontalAlignment="Left" Margin="590,144,0,0" x:Name="TbxAccountNumber" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
+            
+
+
+
+        </Grid>
+    </Border>
 </Page>

@@ -11,6 +11,7 @@ namespace Day07AzureDb
             : base("name=SmartBankingDbContext")
         {
         }
+        public DbSet<Users> UserEmployees { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
