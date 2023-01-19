@@ -20,6 +20,7 @@ namespace Day07AzureDb
             Date_operation = DateTime.Now;
         }
 
+        public int Id { get; set; }
         
         public int Account_id { get; set; }
         public int Deposit_amount { get; set; }

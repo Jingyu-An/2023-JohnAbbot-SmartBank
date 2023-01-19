@@ -68,6 +68,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Globals.cs" />
+    <Compile Include="Migrations\202301181818544_InitialCreate.cs" />
+    <Compile Include="Migrations\202301181818544_InitialCreate.designer.cs">
+      <DependentUpon>202301181818544_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301190214061_ddd.cs" />
+    <Compile Include="Migrations\202301190214061_ddd.designer.cs">
+      <DependentUpon>202301190214061_ddd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301190217409_dddd.cs" />
+    <Compile Include="Migrations\202301190217409_dddd.designer.cs">
+      <DependentUpon>202301190217409_dddd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Operation.cs" />
     <Compile Include="OperationDbContext.cs" />
     <Compile Include="SmartBankingDbContext.cs" />
@@ -120,6 +133,15 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202301181818544_InitialCreate.resx">
+      <DependentUpon>202301181818544_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301190214061_ddd.resx">
+      <DependentUpon>202301190214061_ddd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301190217409_dddd.resx">
+      <DependentUpon>202301190217409_dddd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
