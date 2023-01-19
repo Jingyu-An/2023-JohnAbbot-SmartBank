@@ -47,6 +47,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Json">
+      <HintPath>..\..\System.Net.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -67,6 +70,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Currency.cs" />
+    <Compile Include="CurrencyRate.xaml.cs">
+      <DependentUpon>CurrencyRate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="Migrations\202301190241562_UpdateDb.cs" />
     <Compile Include="Migrations\202301190241562_UpdateDb.designer.cs">
@@ -92,6 +99,10 @@
     <Compile Include="Calculator.xaml.cs">
       <DependentUpon>Calculator.xaml</DependentUpon>
     </Compile>
+    <Page Include="CurrencyRate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
