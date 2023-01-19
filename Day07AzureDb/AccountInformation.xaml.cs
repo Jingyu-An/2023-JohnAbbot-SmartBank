@@ -42,7 +42,7 @@ namespace Day07AzureDb
                     Password = "password",
                     Email = "testing.com",
                     Address = "Montreal ave",
-                    created_at = DateTime.Now,
+                    Created_at = DateTime.Now,
                     Account_type = "Checking"
                 };
                 dbContext.UserEmployees.Add(newUser);

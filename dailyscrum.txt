@@ -86,3 +86,36 @@ Hyunju
 	- Transaction page
 3.
 
+
+======================================================================================================================================================================
+
+Thursday, January 19, 2023:
+Daily Srum Meeting:
+1. What I have done / not done since last Scrum?
+2. What I plan to do from this scrum to next? (next 24 hours)
+3. Where do I need assistance? What do I need to figure out?
+
+Patrick:
+1. Finished Account information page, with all necessary functions(export, update)
+2. Plan until next scrum:
+	- Login 
+	- Class validations
+	- Ribbon, theme
+
+3. Might need assistance for tracking user
+
+Jingyu
+1.Menu and status bar, calculator page completed
+2. Plan until next scrum:
+	- Customer Service page
+	- Finish up functions for calculator page
+	- Ribbon UI
+3.No need
+
+Hyunju
+1.Transaction page is completed
+2. Plan until next scrum:
+	- Ribbon UI
+	- Currency API
+3. No need
+
