@@ -1,0 +1,29 @@
+﻿<Page x:Class="Day07AzureDb.CurrencyRate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Day07AzureDb"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CurrencyRate">
+
+    <Grid>
+        <DatePicker HorizontalAlignment="Left" Height="28" Margin="22,10,0,0" VerticalAlignment="Top" Width="213"/>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="260,14,0,0" VerticalAlignment="Top" Width="83" Click="Button_Click"/>
+        <ListView Name ="Temp" Margin="10,56,10,41"/>
+        <ListView Name ="CurrencyLv" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,56,10,41">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Unit" Width="70"  DisplayMemberBinding="{Binding Unit}" />
+                    <GridViewColumn Header="CountryName" Width="250" DisplayMemberBinding="{Binding CountryName}" />
+                    <GridViewColumn Header="TTB" Width="100" DisplayMemberBinding="{Binding TTB}" />
+                    <GridViewColumn Header="TTS" Width="100" DisplayMemberBinding="{Binding TTS}" />
+                    <GridViewColumn Header="Deal" Width="100" DisplayMemberBinding="{Binding Deal}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+     
+
+    </Grid>
+</Page>
