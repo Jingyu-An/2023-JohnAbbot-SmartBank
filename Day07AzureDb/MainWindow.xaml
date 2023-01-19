@@ -7,26 +7,18 @@
         mc:Ignorable="d"
         Title="Smart Banking" Height="450" Width="800">
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Mene">
-                <MenuItem Header="_Todo..."/>
-            </MenuItem>
-        </Menu>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
                 <TextBlock Text="Status Bar" Name="LblStatus" />
             </StatusBarItem>
         </StatusBar>
         <StackPanel Orientation="Vertical" VerticalAlignment="Top">
-            <Button Content="Page1" MinHeight="40" MinWidth="50" Click="Button_Click">
-            </Button>
-            <Button Content="Page2" MinHeight="40" MinWidth="50" Click="Button_Click_1">
-            </Button>
-            <Button Content="Page3" MinHeight="40" MinWidth="50" Click="Button_Click_2">
-            </Button>
+            <Button Content="Page1" MinHeight="40" MinWidth="50" Click="Button_Click"/>
+            <Button Content="Page2" MinHeight="40" MinWidth="50" Click="Button_Click_1"/>
+            <Button Content="Page3" MinHeight="40" MinWidth="50" Click="Button_Click_2"/>
         </StackPanel>
         <Border BorderBrush="Gray" BorderThickness="1">
-            <Frame x:Name="Main">
+            <Frame x:Name="Main" NavigationUIVisibility="Hidden">
             
             </Frame>
         </Border>

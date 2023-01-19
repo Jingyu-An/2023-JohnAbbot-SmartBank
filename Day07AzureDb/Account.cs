@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Day07AzureDb
             Phone_number_branch = phone_number_branch;
         }
 
-        int Id { get; set; }
+        public int Id { get; set; }
         
         public int Customer_id { get; set; }
         public int User_id { get; set; }
