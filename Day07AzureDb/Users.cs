@@ -18,7 +18,7 @@ namespace Day07AzureDb
             Phone_number = phone_number;
             Password = password;
             Address = address;
-            this.created_at = created_at;
+            Created_at = created_at;
             Account_type = account_type;
         }
 
@@ -29,7 +29,7 @@ namespace Day07AzureDb
         public int Phone_number { get; set; }
         public string Password { get; set; }
         public string Address { get; set; }
-        public DateTime created_at { get; set; }
+        public DateTime Created_at { get; set; }
         public string Account_type { get; set; }
 
     }
