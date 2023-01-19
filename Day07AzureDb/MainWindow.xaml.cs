@@ -25,19 +25,42 @@ namespace Day07AzureDb
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            Main.Content = new AccountInformation();
+            this.DragMove();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ToMiniButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Transactions();
+            this.WindowState = System.Windows.WindowState.Minimized;
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void ToMaxOrNormalButton_Click(object sender, RoutedEventArgs e)
         {
-            Main.Content = new Calculator();
+            if (this.WindowState == System.Windows.WindowState.Maximized)
+            {
+                this.WindowState = System.Windows.WindowState.Normal;
+            }
+            else if (this.WindowState == System.Windows.WindowState.Normal)
+            {
+                this.WindowState = System.Windows.WindowState.Maximized;
+            }
         }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ChangeBackgound(object sender, RoutedEventArgs e)
+        {
+            TabControl tabControl = sender as TabControl;
+            TabItem item = tabControl.SelectedValue as TabItem;
+            if (item.Name == "TabPage1") 
+            {
+                item.Background = Brushes.Transparent;
+            }
+        }
+
     }
 }
