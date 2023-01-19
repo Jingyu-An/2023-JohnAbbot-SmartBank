@@ -12,13 +12,13 @@
         <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
             <StackPanel Orientation="Vertical" Width="300" Margin="20 40 10 10">
                 <Label Content="Mortgage principal amount"/>
-                <TextBox x:Name="TbxMortgageAmount"/>
+                <TextBox x:Name="TbxMortgageAmount" PreviewTextInput="TbxMortgageAmount_PreviewTextInput" TextChanged="TbxMortgageAmount_TextChanged"/>
                 <Label Content="Interest rate"/>
-                <ComboBox x:Name="ComboboxRate"/>
+                <ComboBox x:Name="ComboboxRate" SelectionChanged="ComboboxRate_SelectionChanged"/>
                 <Label Content="Amortization period"/>
-                <ComboBox x:Name="ComboboxPreiod" />
+                <ComboBox x:Name="ComboboxPreiod" SelectionChanged="ComboboxRate_SelectionChanged" />
                 <Label Content="Payment frequency"/>
-                <ComboBox x:Name="ComboboxPayFreq"/>
+                <ComboBox x:Name="ComboboxPayFreq" SelectionChanged="ComboboxRate_SelectionChanged"/>
             </StackPanel>
             <StackPanel Orientation="Vertical" Width="400">
                 <StackPanel.Resources>
@@ -33,8 +33,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Mortgage amount" 
                            Style="{StaticResource mystyle}"/>
-                    <TextBlock Text="{Binding Amount, Mode=TwoWay, StringFormat={}{0:C0}}"
-                               FontSize="15" Margin="0 10" VerticalAlignment="Center"/>
+                    <TextBlock x:Name="TextblockMortgageAmount" MinWidth="100" FontSize="15" Margin="0 10" VerticalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Interest rate" 
@@ -57,7 +56,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Payment amount"
                            Style="{StaticResource mystyle}"/>
-                    <Label Content="{Binding }" FontSize="15" Margin="0 10" Width="80"/>
+                    <TextBlock x:Name="TextblockPaymentAmount"  MinWidth="100" FontSize="15" Margin="0 10" VerticalAlignment="Center"/>
                     <TextBlock Text="{Binding ElementName=ComboboxPayFreq, Path=SelectedItem, StringFormat=/  {0}}"
                                FontSize="15" Margin="0 10" VerticalAlignment="Center"/>
                 </StackPanel>
