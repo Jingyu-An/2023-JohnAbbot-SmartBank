@@ -44,7 +44,7 @@
                         <TextBox x:Name="TbxSubject" Width="500" Background="{x:Null}"/>
                     </StackPanel>
                 </StackPanel>
-                <Button Width="90" Content="Send" FontSize="20" Margin="10" />
+                <Button x:Name="BtnSend" Width="90" Content="Send" FontSize="20" Margin="10" Click="BtnSend_Click"/>
             </StackPanel>
 
             <!-- This tool bar contains all the editing buttons. -->
@@ -58,9 +58,10 @@
                 <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleUnderline" ToolTip="Underline">
                     <TextBlock TextDecorations="Underline" FontWeight="Bold">U</TextBlock>
                 </Button>
-                <Button Style="{StaticResource formatTextStyle}" ToolTip="Attatchment File" >
+                <Button x:Name="BtnAttatchFile" Style="{StaticResource formatTextStyle}" ToolTip="Attatchment File" Click="BtnAttatchFile_Click" >
                     <TextBlock TextDecorations="Underline" FontWeight="Bold">File</TextBlock>
                 </Button>
+                <Label x:Name="LblFileName" />
             </ToolBar>
 
             <!-- By default pressing tab moves focus to the next control. Setting AcceptsTab to true allows the 
