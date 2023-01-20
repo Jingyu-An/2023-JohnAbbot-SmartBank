@@ -79,14 +79,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Currency.cs" />
-    <Compile Include="CurrencyRate.xaml.cs">
-      <DependentUpon>CurrencyRate.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Globals.cs" />
-    <Compile Include="LoginPage.xaml.cs">
-      <DependentUpon>LoginPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202301190241562_UpdateDb.cs" />
     <Compile Include="Migrations\202301190241562_UpdateDb.designer.cs">
       <DependentUpon>202301190241562_UpdateDb.cs</DependentUpon>
@@ -100,8 +92,19 @@
     <Compile Include="OperationDbContext.cs" />
     <Compile Include="SmartBankingDbContext.cs" />
     <Compile Include="Users.cs" />
+    <Compile Include="Globals.cs" />
     <Compile Include="Account.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="Currency.cs" />
+    <Compile Include="CustomerService.xaml.cs">
+      <DependentUpon>CustomerService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CurrencyRate.xaml.cs">
+      <DependentUpon>CurrencyRate.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AccountInformation.xaml.cs">
       <DependentUpon>AccountInformation.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,18 @@
     <Compile Include="Calculator.xaml.cs">
       <DependentUpon>Calculator.xaml</DependentUpon>
     </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="CustomerService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -123,14 +138,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
     <Page Include="AccountInformation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

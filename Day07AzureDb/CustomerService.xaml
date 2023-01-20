@@ -1,0 +1,71 @@
+﻿<Page x:Class="Day07AzureDb.CustomerService"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Day07AzureDb"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CustomerService">
+
+    <Grid>
+        <!-- Set the styles for the tool bar. -->
+        <Grid.Resources>
+            <Style TargetType="{x:Type Button}" x:Key="formatTextStyle">
+                <Setter Property="FontFamily" Value="Palatino Linotype"></Setter>
+                <Setter Property="Width" Value="30"></Setter>
+                <Setter Property="FontSize" Value ="14"></Setter>
+                <Setter Property="CommandTarget" Value="{Binding ElementName=mainRTB}"></Setter>
+            </Style>
+
+            <Style TargetType="{x:Type Button}" x:Key="formatImageStyle">
+                <Setter Property="Width" Value="30"></Setter>
+                <Setter Property="CommandTarget" Value="{Binding ElementName=mainRTB}"></Setter>
+            </Style>
+        </Grid.Resources>
+
+        <DockPanel Name="mainPanel" >
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Email:" MinWidth="60"/>
+                        <TextBox x:Name="TbxEmail" Width="500" Background="{x:Null}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Name:" MinWidth="60"/>
+                        <TextBox x:Name="TbxName" Width="500" Background="{x:Null}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Phone:" MinWidth="60"/>
+                        <TextBox x:Name="TbxPhone" Width="500" Background="{x:Null}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Subject:" MinWidth="60"/>
+                        <TextBox x:Name="TbxSubject" Width="500" Background="{x:Null}"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button Width="90" Content="Send" FontSize="20" Margin="10" />
+            </StackPanel>
+
+            <!-- This tool bar contains all the editing buttons. -->
+            <ToolBar Name="mainToolBar" Height="30" DockPanel.Dock="Top">
+                <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleBold" ToolTip="Bold">
+                    <TextBlock FontWeight="Bold">B</TextBlock>
+                </Button>
+                <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleItalic" ToolTip="Italic">
+                    <TextBlock FontStyle="Italic" FontWeight="Bold">I</TextBlock>
+                </Button>
+                <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleUnderline" ToolTip="Underline">
+                    <TextBlock TextDecorations="Underline" FontWeight="Bold">U</TextBlock>
+                </Button>
+                <Button Style="{StaticResource formatTextStyle}" ToolTip="Attatchment File" >
+                    <TextBlock TextDecorations="Underline" FontWeight="Bold">File</TextBlock>
+                </Button>
+            </ToolBar>
+
+            <!-- By default pressing tab moves focus to the next control. Setting AcceptsTab to true allows the 
+           RichTextBox to accept tab characters. -->
+            <RichTextBox x:Name="RTBBody" AcceptsTab="True" Background="{x:Null}"></RichTextBox>
+        </DockPanel>
+    </Grid>
+</Page>

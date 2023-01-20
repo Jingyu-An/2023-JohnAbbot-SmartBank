@@ -65,8 +65,6 @@ namespace Day07AzureDb
                 MainWindow mainWindow = new MainWindow();
                 if (user != null)
                 {
-                    CurrentUser.users = user;
-
                     // how to be directed to mainwindow?
                    
                     Application.Current.MainWindow = mainWindow;
