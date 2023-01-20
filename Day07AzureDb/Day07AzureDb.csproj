@@ -56,6 +56,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Json">
+      <HintPath>D:\Downloads\System.Net.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -76,6 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Currency.cs" />
+    <Compile Include="CurrencyRate.xaml.cs">
+      <DependentUpon>CurrencyRate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Globals.cs" />
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -104,7 +111,11 @@
     <Compile Include="Calculator.xaml.cs">
       <DependentUpon>Calculator.xaml</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Page Include="LoginPage.xaml">
+=======
+    <Page Include="CurrencyRate.xaml">
+>>>>>>> d5abcab54f8c48ee2da7e9bc276f2bd3c8d44d2e
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,7 +178,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Resource Include="logoV2.png" />
+=======
+    <WCFMetadata Include="Connected Services\" />
+>>>>>>> d5abcab54f8c48ee2da7e9bc276f2bd3c8d44d2e
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

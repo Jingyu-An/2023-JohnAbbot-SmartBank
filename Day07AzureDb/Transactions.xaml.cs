@@ -26,13 +26,12 @@ namespace Day07AzureDb
             InitializeComponent();
             try
             {
-                Globals.opDbContext = new OperationDbContext(); // Exceptions
+                Globals.dbContext = new SmartBankingDbContext(); // Exceptions
                 Operation operations = new Operation(0, 0, 0, "text", 0);
-                Globals.opDbContext.Operations.Add(operations);
-                Globals.opDbContext.SaveChanges();
+                Globals.dbContext.Operations.Add(operations);
+                Globals.dbContext.SaveChanges();
 
-                MessageBox.Show(Globals.opDbContext.Operations.ToList().ToString());
-               
+              
             }catch(Exception ex)
             {
                 MessageBox.Show("error");

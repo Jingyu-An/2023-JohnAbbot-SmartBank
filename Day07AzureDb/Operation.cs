@@ -21,7 +21,6 @@ namespace Day07AzureDb
         }
 
         public int Id { get; set; }
-        
         public int Account_id { get; set; }
         public int Deposit_amount { get; set; }
         public int Withdrawal_amount { get; set; }

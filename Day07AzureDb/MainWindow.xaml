@@ -110,7 +110,7 @@
                         </Style>
                     </StackPanel.Resources>
                     <TabControl TabStripPlacement="Left" Background="#FF3A3A3A">
-                        <TabItem x:Name="TabPage1" Header="Page1" Visibility="Visible"
+                        <TabItem x:Name="TabPage1" Header="Account" Visibility="Visible"
                          Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5">
                             <TabItem.Background>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0" SpreadMethod="Reflect">
@@ -129,8 +129,8 @@
                             <Frame x:Name="FramePage1" NavigationUIVisibility="Hidden" Source="AccountInformation.xaml"
                            Style="{StaticResource FrameStyle}"/>
                         </TabItem>
-                        <TabItem x:Name="TabPage2" Header="Page2" Visibility="Visible"
-                         Style="{StaticResource TabStyle}" BorderBrush="{x:Null}">
+                        <TabItem x:Name="TabPage2" Header="Transaction" Visibility="Visible"
+                         Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" Height="60" Margin="-1,0,1,0" VerticalAlignment="Bottom">
                             <TabItem.Background>
                                 <LinearGradientBrush EndPoint="0,1">
                                     <GradientStop Color="#FFF0F0F0"/>
@@ -141,7 +141,7 @@
                             <Frame x:Name="FramePage2" NavigationUIVisibility="Hidden" Source="Transactions.xaml"
                            Style="{StaticResource FrameStyle}"/>
                         </TabItem>
-                        <TabItem x:Name="TabPage3" Header="Page3" Visibility="Visible"
+                        <TabItem x:Name="TabPage3" Header="Calculator" Visibility="Visible"
                          Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" Foreground="Black">
                             <TabItem.Background>
                                 <LinearGradientBrush EndPoint="0,1" MappingMode="RelativeToBoundingBox">
@@ -151,6 +151,18 @@
                                 </LinearGradientBrush>
                             </TabItem.Background>
                             <Frame x:Name="FramePage3" NavigationUIVisibility="Hidden" Source="Calculator.xaml"
+                           Style="{StaticResource FrameStyle}"/>
+                        </TabItem>
+                        <TabItem x:Name="TabPage4" Header="Currency" Visibility="Visible"
+                         Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" Foreground="Black">
+                            <TabItem.Background>
+                                <LinearGradientBrush EndPoint="0,1" MappingMode="RelativeToBoundingBox">
+                                    <GradientStop Color="#FFF0F0F0"/>
+                                    <GradientStop Color="#FF020202" Offset="1"/>
+                                    <GradientStop Color="#FF3B3B3B" Offset="0.582"/>
+                                </LinearGradientBrush>
+                            </TabItem.Background>
+                            <Frame x:Name="FramePage4" NavigationUIVisibility="Hidden" Source="CurrencyRate.xaml"
                            Style="{StaticResource FrameStyle}"/>
                         </TabItem>
                     </TabControl>
