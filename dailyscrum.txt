@@ -119,3 +119,37 @@ Hyunju
 	- Currency API
 3. No need
 
+
+======================================================================================================================================================================
+
+Thursday, January 20, 2023:
+Daily Srum Meeting:
+1. What I have done / not done since last Scrum?
+2. What I plan to do from this scrum to next? (next 24 hours)
+3. Where do I need assistance? What do I need to figure out?
+
+Patrick:
+1. Finished Login and theme
+2. Plan until next scrum:
+	- Update Theme for whole project, every page
+	- Validation for Users
+	- NOTE: try to complete wizard installer and charts
+
+3. No need
+
+Jingyu
+1.Customer Service completed, calculator page completed
+2. Plan until next scrum:
+	- Modify UI
+	- Edit Validations customers 
+	- Unit test for customers and calculator
+	
+3.No need
+
+Hyunju
+1. Currency API completed
+2. Plan until next scrum:
+	- Foreign key relationships in the database
+	- Currency calculator 
+
+3. No need
