@@ -34,7 +34,7 @@ namespace Day07AzureDb
               
             }catch(Exception ex)
             {
-                MessageBox.Show("error");
+                MessageBox.Show(ex.ToString());
             }
         }
 

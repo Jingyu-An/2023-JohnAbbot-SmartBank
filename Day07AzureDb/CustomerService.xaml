@@ -37,7 +37,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Phone:" MinWidth="60"/>
-                        <TextBox x:Name="TbxPhone" Width="500" Background="{x:Null}"/>
+                        <TextBox x:Name="TbxPhone" PreviewTextInput="TbxPhone_PreviewTextInput" Width="500" Background="{x:Null}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Subject:" MinWidth="60"/>
