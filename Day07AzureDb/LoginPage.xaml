@@ -14,7 +14,9 @@
 
 
     <materialDesign:Card UniformCornerRadius="1" Background="{DynamicResource MaterialDesignPaper}" materialDesign:ElevationAssist.Elevation="Dp4" Margin="25" >
+        
         <materialDesign:DialogHost CloseOnClickAway="True" Name="DialogHost">
+            
             <StackPanel>
                 <materialDesign:PopupBox HorizontalAlignment="Right" Margin='0 20 20 0'
                  PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Height="25">

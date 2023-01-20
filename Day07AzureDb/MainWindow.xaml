@@ -6,8 +6,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Day07AzureDb"
         mc:Ignorable="d"
-        Title="Smart Banking" Height="450" Width="800"
+        Title="Smart Banking" Height="550" Width="1000"
         WindowStartupLocation="CenterScreen"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="White"
         >
 
     <DockPanel>
@@ -15,7 +17,7 @@
             <StatusBarItem FontSize="14">
                 <StatusBarItem.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="LightBlue" Offset="1"/>
                         <GradientStop Color="White" Offset="0"/>
                     </LinearGradientBrush>
                 </StatusBarItem.Background>
@@ -25,23 +27,23 @@
         <StackPanel DockPanel.Dock="top" Orientation="Vertical" VerticalAlignment="Top">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type TabItem}" x:Key="TabStyle">
-                    <Setter Property="Width" Value="60"/>
+                    <Setter Property="Width" Value="100"/>
                     <Setter Property="Height" Value="60"/>
                     <Setter Property="FontSize" Value="15"/>
                 </Style>
                 <Style TargetType="{x:Type Frame}" x:Key="FrameStyle">
-                    <Setter Property="Height" Value="400"/>
+                    <Setter Property="Height" Value="410"/>
                     <Setter Property="Background">
                         <Setter.Value>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="Black" Offset="1"/>
+                                <GradientStop Color="LightBlue" Offset="1"/>
                                 <GradientStop Color="#FFCBCBCB" Offset="0"/>
                             </LinearGradientBrush>
                         </Setter.Value>
                     </Setter>
                 </Style>
             </StackPanel.Resources>
-            <TabControl TabStripPlacement="Left" Background="#FF3A3A3A">
+            <TabControl TabStripPlacement="Left" Background="#FF3A3A3A" >
                 <TabItem x:Name="TabPage1" Header="Account" Visibility="Visible"
                          Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" RenderTransformOrigin="0.5,0.5">
                     <TabItem.Background>
@@ -54,20 +56,20 @@
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </LinearGradientBrush.RelativeTransform>
-                            <GradientStop Color="Black" Offset="1"/>
+                            <GradientStop Color="LightBlue" Offset="1"/>
                             <GradientStop Color="White" Offset="0"/>
                         </LinearGradientBrush>
                     </TabItem.Background>
                     <Frame x:Name="FramePage1" NavigationUIVisibility="Hidden" Source="AccountInformation.xaml"
                            Style="{StaticResource FrameStyle}"/>
                 </TabItem>
-                <TabItem x:Name="TabPage2" Header="Transaction" Visibility="Visible"
-                         Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" Height="60" Margin="-1,0,1,0" VerticalAlignment="Bottom">
+                <TabItem x:Name="TabPage2" Header="Transactions" Visibility="Visible" HorizontalAlignment="Center"
+                         Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" Height="60" Margin="-1,0,1,0" VerticalAlignment="Center">
                     <TabItem.Background>
                         <LinearGradientBrush EndPoint="0,1">
-                            <GradientStop Color="#FFF0F0F0"/>
-                            <GradientStop Color="Black" Offset="1"/>
-                            <GradientStop Color="#FF424242" Offset="0.76"/>
+                            <GradientStop Color="LightBlue"/>
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="LightBlue" Offset="0.76"/>
                         </LinearGradientBrush>
                     </TabItem.Background>
                     <Frame x:Name="FramePage2" NavigationUIVisibility="Hidden" Source="Transactions.xaml"
@@ -77,9 +79,9 @@
                          Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" Foreground="Black">
                     <TabItem.Background>
                         <LinearGradientBrush EndPoint="0,1" MappingMode="RelativeToBoundingBox">
-                            <GradientStop Color="#FFF0F0F0"/>
-                            <GradientStop Color="#FF020202" Offset="1"/>
-                            <GradientStop Color="#FF3B3B3B" Offset="0.582"/>
+                            <GradientStop Color="LightBlue"/>
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="LightBlue" Offset="0.582"/>
                         </LinearGradientBrush>
                     </TabItem.Background>
                     <Frame x:Name="FramePage3" NavigationUIVisibility="Hidden" Source="Calculator.xaml"
@@ -89,21 +91,21 @@
                          Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" Foreground="Black">
                     <TabItem.Background>
                         <LinearGradientBrush EndPoint="0,1" MappingMode="RelativeToBoundingBox">
-                            <GradientStop Color="#FFF0F0F0"/>
-                            <GradientStop Color="#FF020202" Offset="1"/>
-                            <GradientStop Color="#FF3B3B3B" Offset="0.582"/>
+                            <GradientStop Color="LightBlue"/>
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="LightBlue" Offset="0.582"/>
                         </LinearGradientBrush>
                     </TabItem.Background>
                     <Frame x:Name="FramePage4" NavigationUIVisibility="Hidden" Source="CurrencyRate.xaml"
                            Style="{StaticResource FrameStyle}"/>
                 </TabItem>
-                <TabItem x:Name="TabPage5" Header="Service" Visibility="Visible"
-                         Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" Foreground="Black">
+                <TabItem x:Name="TabPage5" Header="Assistance" Visibility="Visible"
+                         Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" Foreground="Black" VerticalContentAlignment="Center">
                     <TabItem.Background>
                         <LinearGradientBrush EndPoint="0,1" MappingMode="RelativeToBoundingBox">
-                            <GradientStop Color="#FFF0F0F0"/>
-                            <GradientStop Color="#FF020202" Offset="1"/>
-                            <GradientStop Color="#FF3B3B3B" Offset="0.582"/>
+                            <GradientStop Color="LightBlue" />
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="LightBlue" Offset="0.582"/>
                         </LinearGradientBrush>
                     </TabItem.Background>
                     <Frame x:Name="FramePage5" NavigationUIVisibility="Hidden" Source="CustomerService.xaml"
