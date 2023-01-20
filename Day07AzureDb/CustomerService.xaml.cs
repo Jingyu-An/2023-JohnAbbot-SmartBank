@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -39,11 +40,11 @@ namespace Day07AzureDb
 
         private void BtnSend_Click(object sender, RoutedEventArgs e)
         {
-            string smtpAddress = "smtp.google.com";
+            string smtpAddress = "smtp.gmail.com";
             int smtpPort = 587;
             bool smtpSSL = true;
-            string smtpId = "";
-            string smtpPw = "";
+            string smtpId = "jqrohan@gmail.com";
+            string smtpPw = "lrvkcxokqtbqlrph";
             bool isBodyHtml = false;
 
             using (SmtpClient smtp = new SmtpClient(smtpAddress, smtpPort))
@@ -63,19 +64,25 @@ namespace Day07AzureDb
                         mail.Subject = TbxSubject.Text;
 
                         mail.BodyEncoding = Encoding.UTF8;
-                        mail.Body = $" Name: {TbxName.Text}\n Phone: {TbxPhone.Text}\n" +
+                        mail.Body = $" Name: {TbxName.Text}\n Phone: {TbxPhone.Text}\n\n" +
                             StringFromRichTextBox(RTBBody);
 
                         mail.IsBodyHtml = isBodyHtml;
 
-                        System.Net.Mail.Attachment attachment;
-                        attachment = new System.Net.Mail.Attachment(LblFileName.Content.ToString());
-                        mail.Attachments.Add(attachment);
+                        if (LblFileName.Content != null)
+                        {
+                            System.Net.Mail.Attachment attachment;
+                            attachment = new System.Net.Mail.Attachment(LblFileName.Content.ToString());
+                            mail.Attachments.Add(attachment);
+                        }
 
                         smtp.Send(mail);
-                        MessageBox.Show("Sending mail ok", "Mail sending successfull", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("Sending mail ok", "Mail sending successfull", MessageBoxButton.OK, MessageBoxImage.Information);
+                        ResetInput();
+
                     }
-                    catch (Exception ex) when (ex is SmtpException | ex is ArgumentException) 
+                    catch (Exception ex) when (ex is SmtpException | ex is ArgumentException | 
+                                                ex is ArgumentNullException | ex is FormatException) 
                     {
                         MessageBox.Show("Fail sending mail: " + ex.Message, "Mail sending fail", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
@@ -96,5 +103,22 @@ namespace Day07AzureDb
             // representing the plain text content of the TextRange.
             return textRange.Text;
         }
+
+        private void TbxPhone_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        private void ResetInput()
+        {
+            TbxEmail.Text = string.Empty;
+            TbxName.Text = string.Empty;
+            TbxPhone.Text = string.Empty;
+            TbxSubject.Text = string.Empty;
+            LblFileName.Content = string.Empty;
+            RTBBody.Document.Blocks.Clear();
+        }
+
     }
 }
