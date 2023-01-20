@@ -9,7 +9,7 @@
       Title="LoginPage" Height="760" Width="450"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
       Background="{x:Null}"
-      
+      WindowStartupLocation="CenterScreen"
       >
 
 
