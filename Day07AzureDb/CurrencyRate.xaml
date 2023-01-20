@@ -6,11 +6,17 @@
       xmlns:local="clr-namespace:Day07AzureDb"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CurrencyRate">
+      Title="CurrencyRate"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      Background="White"
+      >
 
     <Grid>
         <DatePicker HorizontalAlignment="Left" Height="28" Margin="22,10,0,0" VerticalAlignment="Top" Width="213"/>
-        <Button Content="OK" HorizontalAlignment="Left" Margin="260,14,0,0" VerticalAlignment="Top" Width="83" Click="Button_Click"/>
+
+        <Button x:Name="BtnSignup"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Submit" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="Button_Click" Margin="258,10,442,408"/>
+
         <ListView Name ="Temp" Margin="10,56,10,41"/>
         <ListView Name ="CurrencyLv" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,56,10,41">
             <ListView.View>
@@ -23,7 +29,7 @@
                 </GridView>
             </ListView.View>
         </ListView>
-     
+
 
     </Grid>
 </Page>
