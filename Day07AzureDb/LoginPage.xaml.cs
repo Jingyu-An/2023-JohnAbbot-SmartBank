@@ -19,7 +19,7 @@ namespace Day07AzureDb
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : Window
     {
         private readonly Users _loggedInUser;
         public LoginPage()
@@ -61,11 +61,15 @@ namespace Day07AzureDb
             using (var dbContext = new SmartBankingDbContext())
             {
                 var user = dbContext.UserEmployees.FirstOrDefault(u => u.Full_name == username && u.Password == password);
+                MainWindow mainWindow = new MainWindow();
                 if (user != null)
                 {
 
                     // how to be directed to mainwindow?
                    
+                    Application.Current.MainWindow = mainWindow;
+                    mainWindow.Show();
+                    this.Close();
                 }
                 else
                 {
