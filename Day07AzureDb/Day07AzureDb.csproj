@@ -57,7 +57,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Json">
-      <HintPath>D:\Downloads\System.Net.Json.dll</HintPath>
+      <HintPath>C:\Users\pat\Downloads\System.Net.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />

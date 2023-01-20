@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,7 +22,7 @@ namespace Day07AzureDb
     /// </summary>
     public partial class LoginPage : Page
     {
-        private readonly Users _loggedInUser;
+        
         public LoginPage()
         {
             InitializeComponent();
@@ -63,9 +64,9 @@ namespace Day07AzureDb
                 var user = dbContext.UserEmployees.FirstOrDefault(u => u.Full_name == username && u.Password == password);
                 if (user != null)
                 {
+                    CurrentUser.users = user;
 
-                    // how to be directed to mainwindow?
-                   
+                    
                 }
                 else
                 {
@@ -74,9 +75,11 @@ namespace Day07AzureDb
                 }
             }
         }
-        public Users LoggedInUser
+      
+
+        public static class CurrentUser
         {
-            get { return _loggedInUser; }
+            public static Users users { get; set; }
         }
     }
 }
