@@ -6,7 +6,10 @@
       xmlns:local="clr-namespace:Day07AzureDb"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Calculator">
+      Title="Calculator"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      
+      Background="White">
 
     <Grid>
         <StackPanel Orientation="Horizontal" Margin="10 10 10 10">

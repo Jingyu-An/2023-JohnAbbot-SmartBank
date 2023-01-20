@@ -5,37 +5,42 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Day07AzureDb"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="AccountInformation">
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="AccountInformation"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      Background="White"
+      >
 
     <Grid>
-        <Button Name="BtnAdd" Content="AddUser" HorizontalAlignment="Left" Margin="634,169,0,0" VerticalAlignment="Top" Click="BtnAdd_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <Button Name="BtnSaveFile" Content="BtnSaveFiles" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="383,192,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="BtnSaveFile_Click"/>
+        <TextBlock  Text="Full Name:" Margin="141,0,594,-25" Grid.ColumnSpan="2" Name="LblFullName" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="213,35,194,-25" materialDesign:HintAssist.Hint="Enter your full name" Name="TbxFullName"/>
 
-        <Button Name="BtnUpdate" Content="Update" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="383,241,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="BtnUpdate_click"/>
+        <TextBlock  Text="Password:" Margin="141,0,603,-77" Grid.ColumnSpan="2" x:Name="LblPassword" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="213,88,194,-77" materialDesign:HintAssist.Hint="Enter your password" Name="TbxPassword"/>
 
-        <Label Name="LblFullName" FontWeight="DemiBold"  Content="Full Name" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Width="159"/>
+        <TextBlock  Text="Email:" Margin="141,0,603,-124" Grid.ColumnSpan="2" x:Name="LblEmail" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="213,134,194,-124" materialDesign:HintAssist.Hint="Enter your email" Name="TbxEmail" />
 
-        <Label Name="LblEmail" FontWeight="DemiBold"  Content="Email" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top" Width="159"/>
-        <Label Name="LblFullPhoneNumber" FontWeight="DemiBold"  Content="Phone Number" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" Width="159"/>
+        <TextBlock  Text="Address:" Margin="141,0,603,-179" Grid.ColumnSpan="2" x:Name="LblAddress" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
+        <TextBox  Grid.Column="1" Margin="213,189,194,-179" materialDesign:HintAssist.Hint="Enter your address" Name="TbxAddress"/>
 
-        <Label Name="LblPassword" FontWeight="DemiBold"  Content="Password" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Width="159"/>
+        <TextBlock  Text="Phone Number:" Margin="141,0,566,-231" Grid.ColumnSpan="2" x:Name="LblFullPhoneNumber" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
+        <TextBox  Grid.Column="1" Margin="262,242,194,-231" materialDesign:HintAssist.Hint="Enter your phone number" Name="TbxPhoneNumber" />
 
-        <Label Name="LblAddress" FontWeight="DemiBold"  Content="Address" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="379,90,0,0" VerticalAlignment="Top" Width="159"/>
-        <Label Name="LblAccountNumber" FontWeight="DemiBold"  Content="Account Number" Background="AliceBlue" HorizontalContentAlignment="Center"  HorizontalAlignment="Left" Margin="379,141,0,0" VerticalAlignment="Top" Width="159"/>
+        <TextBlock  Text="Account Number:" Margin="141,0,563,-278" Grid.ColumnSpan="2" x:Name="LblAccountNumber" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
+        <TextBox Grid.Column="1" Margin="262,293,194,-283" materialDesign:HintAssist.Hint="Enter your account number" Name="TbxAccountNumber" />
 
-        <TextBox HorizontalAlignment="Left" Margin="174,93,0,0" Name="TbxFullName" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
-
-        <TextBox HorizontalAlignment="Left" Margin="174,144,0,0" Name="TbxEmail" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
-
-        <TextBox HorizontalAlignment="Left" Margin="174,195,0,0" Name="TbxPhoneNumber" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
-
-        <TextBox HorizontalAlignment="Left" Margin="174,244,0,0" Name="TbxPassword" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
-
-        <TextBox HorizontalAlignment="Left" Margin="543,93,0,0" Name="TbxAddress" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
-
-        <TextBox HorizontalAlignment="Left" Margin="543,144,0,0" x:Name="TbxAccountNumber" Background="LightGray" FontWeight="DemiBold" HorizontalContentAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="159" Height="20"/>
+        <Button Name="BtnSaveFile"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Save" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnSaveFile_Click" Grid.Column="1" Margin="262,389,438,-385"/>
+        <Button x:Name="BtnUpdate"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Update" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnUpdate_click" Grid.Column="1" Margin="506,389,194,-385"/>
 
     </Grid>
 </Page>
