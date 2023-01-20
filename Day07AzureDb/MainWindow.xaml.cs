@@ -23,6 +23,7 @@ namespace Day07AzureDb
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void Rectangle_MouseDown(object sender, MouseButtonEventArgs e)
