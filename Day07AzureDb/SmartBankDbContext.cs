@@ -5,20 +5,17 @@ using System.Linq;
 
 namespace Day07AzureDb
 {
-    public partial class SmartBankingDbContext : DbContext
+    public partial class SmartBankDbContext : DbContext
     {
-        public SmartBankingDbContext()
-            : base("name=SmartBankingDbContext")
+        public SmartBankDbContext()
+            : base("name=SmartBankDbContext")
         {
         }
 
         public DbSet<Users> UserEmployees { get; set; }
-
-
         public DbSet<Operation> Operations { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Account> Accounts { get; set; }
-
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

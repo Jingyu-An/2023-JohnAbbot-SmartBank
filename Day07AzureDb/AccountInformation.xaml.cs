@@ -32,7 +32,7 @@ namespace Day07AzureDb
 
         public void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            using (var dbContext = new SmartBankingDbContext())
+            using (var dbContext = new SmartBankDbContext())
             {
                 var newUser = new Users
                 {
@@ -57,10 +57,10 @@ namespace Day07AzureDb
         {
             //Globals.dbContext = new SmartBankingDbContext();
             // Using LINQ
-            using (var dbSmartDb = new SmartBankingDbContext())
+            using (var dbSmartDb = new SmartBankDbContext())
             {
                 var user = (from userOne in dbSmartDb.UserEmployees
-                            where userOne.Id == 1
+                            where userOne.User_id == 1
                             select userOne).FirstOrDefault();
 
                 if (user != null)
@@ -88,11 +88,11 @@ namespace Day07AzureDb
 
             if (saveFileDialog.ShowDialog() == true)
             {
-                using (var dbSmartDb = new SmartBankingDbContext())
+                using (var dbSmartDb = new SmartBankDbContext())
                 {
                     string fileName = saveFileDialog.FileName;
                     var user = (from userOne in dbSmartDb.UserEmployees
-                                where userOne.Id == 1
+                                where userOne.User_id == 1
                                 select userOne).FirstOrDefault();
 
                     var userInfoLines = new List<string>();
@@ -109,10 +109,10 @@ namespace Day07AzureDb
 
         private void BtnUpdate_click(object sender, RoutedEventArgs e)
         {
-            using (var dbSmartDb = new SmartBankingDbContext())
+            using (var dbSmartDb = new SmartBankDbContext())
             {
                 var user = (from userOne in dbSmartDb.UserEmployees
-                            where userOne.Id == 1
+                            where userOne.User_id == 1
                             select userOne).FirstOrDefault();
 
                 if (user != null)

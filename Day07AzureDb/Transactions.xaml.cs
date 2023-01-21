@@ -26,7 +26,7 @@ namespace Day07AzureDb
             InitializeComponent();
             try
             {
-                Globals.dbContext = new SmartBankingDbContext(); // Exceptions
+                Globals.dbContext = new SmartBankDbContext(); // Exceptions
               
 
               

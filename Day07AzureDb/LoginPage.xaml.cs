@@ -59,7 +59,7 @@ namespace Day07AzureDb
             string username = TxtUsername.Text;
             string password = TxtPassword.Password;
 
-            using (var dbContext = new SmartBankingDbContext())
+            using (var dbContext = new SmartBankDbContext())
             {
                 var user = dbContext.UserEmployees.FirstOrDefault(u => u.Full_name == username && u.Password == password);
                 MainWindow mainWindow = new MainWindow();
