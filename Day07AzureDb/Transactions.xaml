@@ -21,5 +21,7 @@
         <TextBox x:Name="TbxAmount" HorizontalAlignment="Left" Height="22" Margin="192,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
         <TextBox x:Name="TbsRecipient" HorizontalAlignment="Left" Height="22" Margin="192,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
         <TextBox x:Name="TbsDesc" HorizontalAlignment="Left" Height="22" Margin="192,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
+        <Label Content="Current Balance" HorizontalAlignment="Left" Height="28" Margin="562,85,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label Name ="CurrentBalance" Content="" HorizontalAlignment="Left" Height="33" Margin="525,116,0,0" VerticalAlignment="Top" Width="193"/>
     </Grid>
 </Page>

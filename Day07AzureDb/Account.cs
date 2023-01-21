@@ -10,25 +10,26 @@ namespace Day07AzureDb
 {
     public class Account
     {
-        public static int _account_number = 1000;
-        
+        public static string _account_balance = "0";
+
         public Account() { }
 
-        public Account(int customer_id, int user_id, string bank_branch_address, string phone_number_branch)
+        public Account(int customer_id, int user_id, string bank_branch_address, string phone_number_branch, string account_balance)
         {
             Customer_id = customer_id;
             User_id = user_id;
             Bank_branch_address = bank_branch_address;
             Phone_number_branch = phone_number_branch;
-            Account_number = _account_number++;
+            Account_balance = account_balance;
+
         }
 
         [Key]
         public int Account_id { get; set; }
-        
-        public int Account_number { get; set; }
 
-        public string Bank_branch_address{ get; set; }
+        public String Account_balance { get; set; }
+
+        public string Bank_branch_address { get; set; }
         public string Phone_number_branch { get; set; }
 
 

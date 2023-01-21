@@ -54,6 +54,7 @@ namespace Day07AzureDb
                 {
                     Customer_id = newCustomer.Customer_id,
                     User_id = LoginPage.CurrentUser.users.User_id,
+                    Account_balance = TbxAccountBalance.Text,
                     Bank_branch_address = "Smart Bank in Montreal",
                     Phone_number_branch = "4340000000"
                 };

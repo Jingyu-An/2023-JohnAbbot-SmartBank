@@ -87,6 +87,10 @@
     <Compile Include="Migrations\202301211655003_MigratingUserConsumer.designer.cs">
       <DependentUpon>202301211655003_MigratingUserConsumer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301212235564_balance.cs" />
+    <Compile Include="Migrations\202301212235564_balance.designer.cs">
+      <DependentUpon>202301212235564_balance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Operation.cs" />
     <Compile Include="Signup.xaml.cs">
@@ -176,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301211655003_MigratingUserConsumer.resx">
       <DependentUpon>202301211655003_MigratingUserConsumer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301212235564_balance.resx">
+      <DependentUpon>202301212235564_balance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
