@@ -25,7 +25,17 @@ namespace Day07AzureDb
     public partial class CurrencyRate : Page
     {
         List<Currency> currencyList = new List<Currency>();
+        public static double cadttb = 0;
+        public static double cadtts = 0;
+        public static double cadDeal = 0;
 
+        public static double krwttb = 0;
+        public static double krwtts = 0;
+        public static double krwDeal = 0;
+
+        public static double usttb = 0;
+        public static double ustts = 0;
+        public static double usDeal = 0;
         public List<string> CurrencyFromList { get; set; } = new List<string>()
         {
             "CANADA - CAD",
@@ -109,22 +119,59 @@ namespace Day07AzureDb
             bool kor = unit.Equals("KRW");
             bool cad = unit.Equals("CAD");
 
+            
+
 
 
 
             if (us || kor || cad)
             {
-                if (us)
+                if (cad)
                 {
-                        countryName =  countryName.Replace("미국 달러", "US");
+                    countryName = countryName.Replace("캐나다 달러", "CANADA");
+                    
+                    cadttb = (Double.Parse(ttb));
+                    cadtts = (Double.Parse(tts));
+                    cadDeal = (Double.Parse(deal));
+                    
+                    ttb = ttb.Replace(ttb, "0");
+                    tts = tts.Replace(tts, "0");
+                    deal = deal.Replace(deal, "1");
+
                 }
                 else if (kor)
                 {
                     countryName = countryName.Replace("한국 원", "KOREA");
+
+                    krwttb = (Double.Parse(ttb));
+                    krwtts = (Double.Parse(tts));
+                    krwDeal = (Double.Parse(deal));
+
+                    
+                    ttb = ttb.Replace(ttb,cadttb.ToString());
+                    tts = tts.Replace(tts, cadtts.ToString());
+                    deal = deal.Replace(deal, cadDeal.ToString());
+                    
+
                 }
-                else if (cad)
+                else if(us)
                 {
-                    countryName = countryName.Replace("캐나다 달러", "CANADA");
+                    countryName = countryName.Replace("미국 달러", "US");
+
+                    usttb = (Double.Parse(ttb));
+                    ustts = (Double.Parse(tts));
+                    usDeal = (Double.Parse(deal));
+
+                    usttb = cadttb / usttb;
+                    ustts = cadtts / ustts;
+                    usDeal= cadDeal / usDeal;
+
+
+                    ttb = ttb.Replace(ttb, usttb.ToString("F"));
+                    tts = tts.Replace(tts, ustts.ToString("F"));
+                    deal = deal.Replace(deal, usDeal.ToString("F"));
+
+
                 }
 
 
