@@ -12,6 +12,8 @@ namespace Day07AzureDb
     {
         public static int _account_number = 1000;
         
+        public Account() { }
+
         public Account(int customer_id, int user_id, string bank_branch_address, string phone_number_branch)
         {
             Customer_id = customer_id;

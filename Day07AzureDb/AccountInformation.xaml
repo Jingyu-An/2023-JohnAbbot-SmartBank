@@ -35,11 +35,12 @@
         <TextBlock  Text="Phone Number:" Margin="141,0,566,-231" Grid.ColumnSpan="2" x:Name="LblFullPhoneNumber" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
         <TextBox  Grid.Column="1" Margin="262,242,194,-231" materialDesign:HintAssist.Hint="Enter your phone number" Name="TbxPhoneNumber" />
 
-        <TextBlock  Text="Account Number:" Margin="141,0,563,-278" Grid.ColumnSpan="2" x:Name="LblAccountNumber" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
-        <TextBox Grid.Column="1" Margin="262,293,194,-283" materialDesign:HintAssist.Hint="Enter your account number" Name="TbxAccountNumber" />
+        <TextBlock Margin="141,0,563,-278" Grid.ColumnSpan="2" x:Name="LblAccountNumber" FontWeight="DemiBold" VerticalAlignment="Bottom"><Run Text="Account "/><Run Language="ko-kr" Text="Type"/><Run Text=":"/></TextBlock>
+        <TextBox Grid.Column="1" Margin="262,293,194,-283" materialDesign:HintAssist.Hint="Enter your account type" Name="TbxAccountNumber" />
 
-        <Button Name="BtnSaveFile"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Save" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnSaveFile_Click" Grid.Column="1" Margin="262,389,438,-385"/>
-        <Button x:Name="BtnUpdate"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Update" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnUpdate_click" Grid.Column="1" Margin="506,389,194,-385"/>
+        <Button Name="BtnSaveFile"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Save" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnSaveFile_Click" Grid.Column="1" Margin="193,389,507,-385" RenderTransformOrigin="0.125,0.591"/>
+        <Button x:Name="BtnUpdate"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Update" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnUpdate_Click" Grid.Column="1" Margin="441,389,259,-385"/>
+        <Button x:Name="BtnAdd" materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Add" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnAdd_Click" Grid.Column="1" Margin="439,389,261,-385"/>
 
     </Grid>
 </Page>

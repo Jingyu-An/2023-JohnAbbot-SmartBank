@@ -79,6 +79,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\202301210350381_updateDb.cs" />
+    <Compile Include="Migrations\202301210350381_updateDb.designer.cs">
+      <DependentUpon>202301210350381_updateDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Operation.cs" />
     <Compile Include="SmartBankDbContext.cs" />
     <Compile Include="Users.cs" />
@@ -155,6 +160,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202301210350381_updateDb.resx">
+      <DependentUpon>202301210350381_updateDb.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

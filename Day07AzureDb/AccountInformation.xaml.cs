@@ -27,28 +27,49 @@ namespace Day07AzureDb
         public AccountInformation()
         {
             InitializeComponent();
+            Globals.dbContext = new SmartBankDbContext();
             FindUser();
         }
 
         public void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            using (var dbContext = new SmartBankDbContext())
+            try
             {
-                var newUser = new Users
+                using (Globals.dbContext)
                 {
+                    var newCustomer = new Customer
+                    {
+                        Full_name = TbxFullName.Text,
+                        Phone_number = TbxPhoneNumber.Text,
+                        Password = TbxPassword.Text,
+                        Email = TbxEmail.Text,
+                        Address = TbxAddress.Text,
+                        Created_at = DateTime.Now,
+                        Account_type = TbxAccountNumber.Text
+                    };
 
-                    Full_name = "John Smith",
-                    Phone_number = 514888988,
-                    Password = "password",
-                    Email = "testing.com",
-                    Address = "Montreal ave",
-                    Created_at = DateTime.Now,
-                    Account_type = "Checking"
-                };
-                dbContext.UserEmployees.Add(newUser);
-                dbContext.SaveChanges();
+                    Globals.dbContext.Customers.Add(newCustomer);
+                    Globals.dbContext.SaveChanges();
 
-                //dbContext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Users]");
+                    var newAccount = new Account
+                    {
+                        Customer_id = newCustomer.Customer_id,
+                        User_id = LoginPage.CurrentUser.users.User_id,
+                        Bank_branch_address = "Smart Bank in Montreal",
+                        Phone_number_branch = "4340000000"
+                    };
+                    Globals.dbContext.Accounts.Add(newAccount);
+                    Globals.dbContext.SaveChanges();
+
+                    ResetTbx();
+                    MessageBox.Show("Customer registration complete", "Customer registration", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    //dbContext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Users]");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Customer registration fail: " + ex.Message, "Customer registration", MessageBoxButton.OK, MessageBoxImage.Information);
             }
 
         }
@@ -57,21 +78,30 @@ namespace Day07AzureDb
         {
             //Globals.dbContext = new SmartBankingDbContext();
             // Using LINQ
-            using (var dbSmartDb = new SmartBankDbContext())
+            using (Globals.dbContext)
             {
-                var user = (from userOne in dbSmartDb.UserEmployees
-                            where userOne.User_id == 1
-                            select userOne).FirstOrDefault();
-
-                if (user != null)
+                Users user = LoginPage.CurrentUser.users;
+                Customer customer = LoginPage.CurrentUser.customer;
+                /*                var user = (from userOne in Globals.dbContext.UserEmployees
+                                            where userOne.User_id == 1
+                                            select userOne).FirstOrDefault();
+                */
+                if (customer != null)
                 {
-                    TbxFullName.Text = user.Full_name;
-                    TbxEmail.Text = user.Email;
-                    TbxPhoneNumber.Text = user.Phone_number.ToString();
-                    TbxPassword.Text = user.Password;
-                    TbxAddress.Text = user.Address;
-                    TbxAccountNumber.Text = user.Account_type;
+                    TbxFullName.Text = customer.Full_name;
+                    TbxEmail.Text = customer.Email;
+                    TbxPhoneNumber.Text = customer.Phone_number.ToString();
+                    TbxPassword.Text = customer.Password;
+                    TbxAddress.Text = customer.Address;
+                    TbxAccountNumber.Text = customer.Account_type;
+                    TbxAccountNumber.IsEnabled = false;
+                    BtnAdd.Visibility = Visibility.Hidden;
                 }
+                else
+                {
+                    BtnUpdate.Visibility = Visibility.Hidden;
+                }
+
             }
 
 
@@ -88,10 +118,10 @@ namespace Day07AzureDb
 
             if (saveFileDialog.ShowDialog() == true)
             {
-                using (var dbSmartDb = new SmartBankDbContext())
+                using (Globals.dbContext)
                 {
                     string fileName = saveFileDialog.FileName;
-                    var user = (from userOne in dbSmartDb.UserEmployees
+                    var user = (from userOne in Globals.dbContext.UserEmployees
                                 where userOne.User_id == 1
                                 select userOne).FirstOrDefault();
 
@@ -107,11 +137,11 @@ namespace Day07AzureDb
             }
         }
 
-        private void BtnUpdate_click(object sender, RoutedEventArgs e)
+        private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            using (var dbSmartDb = new SmartBankDbContext())
+            using (Globals.dbContext)
             {
-                var user = (from userOne in dbSmartDb.UserEmployees
+                var user = (from userOne in Globals.dbContext.UserEmployees
                             where userOne.User_id == 1
                             select userOne).FirstOrDefault();
 
@@ -119,12 +149,12 @@ namespace Day07AzureDb
                 {
                     user.Full_name = TbxFullName.Text;
                     user.Email = TbxEmail.Text;
-                    user.Phone_number = int.Parse(TbxPhoneNumber.Text);
+                    user.Phone_number = TbxPhoneNumber.Text;
                     user.Password = TbxPassword.Text;
                     user.Address = TbxAddress.Text;
                     user.Account_type = TbxAccountNumber.Text;
 
-                    dbSmartDb.SaveChanges();
+                    Globals.dbContext.SaveChanges();
                     MessageBox.Show("User updated successfully");
                 }
                 else
@@ -132,6 +162,16 @@ namespace Day07AzureDb
                     MessageBox.Show("User not found");
                 }
             }
+        }
+
+        private void ResetTbx()
+        {
+            TbxFullName.Text = "";
+            TbxEmail.Text = "";
+            TbxPhoneNumber.Text = "";
+            TbxPassword.Text = "";
+            TbxAddress.Text = "";
+            TbxAccountNumber.Text = "";
         }
     }
 }

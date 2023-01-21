@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -26,6 +27,7 @@ namespace Day07AzureDb
         public LoginPage()
         {
             InitializeComponent();
+            Globals.dbContext = new SmartBankDbContext();
         }
 
         public bool IsDarktheme { get; set; }
@@ -59,22 +61,43 @@ namespace Day07AzureDb
             string username = TxtUsername.Text;
             string password = TxtPassword.Password;
 
-            using (var dbContext = new SmartBankDbContext())
+            using (Globals.dbContext)
             {
-                var user = dbContext.UserEmployees.FirstOrDefault(u => u.Full_name == username && u.Password == password);
+                Users user = Globals.dbContext.UserEmployees.FirstOrDefault(u => u.Full_name == username && u.Password == password);
+                Customer customer = Globals.dbContext.Customers.FirstOrDefault(u => u.Full_name == username && u.Password == password);
                 MainWindow mainWindow = new MainWindow();
                 if (user != null)
                 {
-                    // how to be directed to mainwindow?
                     CurrentUser.users = user;
                    
+                    Application.Current.MainWindow = mainWindow;
+                    mainWindow.Show();
+                    this.Close();
+                } 
+                else if (customer != null)
+                {
+                    CurrentUser.customer = customer;
+                    int userID = 0;
+                    var result = from accounts in Globals.dbContext.Accounts
+                                 where accounts.Customer_id == customer.Customer_id
+                                 join users in Globals.dbContext.UserEmployees
+                                 on accounts.User_id equals users.User_id into u
+                                 from users in u
+                                 select new { findUserId = users.User_id };
+
+                    foreach (var item in result)
+                    {
+                        userID = item.findUserId;
+                    }
+
+                    CurrentUser.users = Globals.dbContext.UserEmployees.FirstOrDefault(u => u.User_id == userID);
+
                     Application.Current.MainWindow = mainWindow;
                     mainWindow.Show();
                     this.Close();
                 }
                 else
                 {
-                   
                     MessageBox.Show("Invalid username or password.");
                 }
             }
@@ -84,6 +107,7 @@ namespace Day07AzureDb
         public static class CurrentUser
         {
             public static Users users { get; set; }
+            public static Customer customer { get; set; }
         }
     }
 }
