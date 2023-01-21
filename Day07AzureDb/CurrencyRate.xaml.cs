@@ -216,6 +216,7 @@ namespace Day07AzureDb
 
         private void ComboboxFrom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            int amount = int.Parse(TxtAmount.Text);
 
         }
 
