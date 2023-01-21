@@ -23,7 +23,7 @@ namespace Day07AzureDb
         }
 
         [Key]
-        public int Id { get; set; }
+        public int User_id { get; set; }
         public string Email { get; set; }
         public string Full_name { get; set; }
         public int Phone_number { get; set; }

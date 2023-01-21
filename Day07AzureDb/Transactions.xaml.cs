@@ -26,10 +26,8 @@ namespace Day07AzureDb
             InitializeComponent();
             try
             {
-                Globals.dbContext = new SmartBankingDbContext(); // Exceptions
-                Operation operations = new Operation(0, 0, 0, "text", 0);
-                Globals.dbContext.Operations.Add(operations);
-                Globals.dbContext.SaveChanges();
+                Globals.dbContext = new SmartBankDbContext(); // Exceptions
+              
 
               
             }catch(Exception ex)
@@ -40,8 +38,28 @@ namespace Day07AzureDb
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+           
+            
+            Operation operations = new Operation(0, 0, 0, "text", 0);
+            Globals.dbContext.Operations.Add(operations);
+            Globals.dbContext.SaveChanges();
             MessageBox.Show("Send money successfully!");
         }
 
     }
+    /*
+     
+            var result = from trip in Globals.dbContext.Trips.AsEnumerable()
+                         join user in Globals.dbContext.Users.AsEnumerable()
+                         on trip.Id equals user.Trip_id into dataKey
+                         from user in dataKey
+                         select new {
+
+                                 Destination = trip.Destination
+                         };
+
+
+
+            MessageBox.Show(result.First().ToString());
+     */
 }

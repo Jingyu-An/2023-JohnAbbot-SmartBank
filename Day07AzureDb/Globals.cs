@@ -8,6 +8,6 @@ namespace Day07AzureDb
 {
     internal class Globals
     {
-        static internal SmartBankingDbContext dbContext;
+        static internal SmartBankDbContext dbContext;
     }
 }
