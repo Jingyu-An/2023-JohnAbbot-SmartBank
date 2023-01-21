@@ -36,7 +36,7 @@ namespace Day07AzureDb
             }
             set
             {
-                if (Regex.IsMatch(value, @"^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9]+[.]+[a-zA-Z]+$"))
+                if (!Regex.IsMatch(value, @"^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9]+[.]+[a-zA-Z]+$"))
                 {
                     throw new FormatException("Please insert a valid email address.");
                 }

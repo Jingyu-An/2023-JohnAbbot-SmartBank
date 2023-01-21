@@ -83,6 +83,10 @@
     <Compile Include="Migrations\202301210350381_updateDb.designer.cs">
       <DependentUpon>202301210350381_updateDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202301211655003_MigratingUserConsumer.cs" />
+    <Compile Include="Migrations\202301211655003_MigratingUserConsumer.designer.cs">
+      <DependentUpon>202301211655003_MigratingUserConsumer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Operation.cs" />
     <Compile Include="Signup.xaml.cs">
@@ -169,6 +173,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202301210350381_updateDb.resx">
       <DependentUpon>202301210350381_updateDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301211655003_MigratingUserConsumer.resx">
+      <DependentUpon>202301211655003_MigratingUserConsumer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

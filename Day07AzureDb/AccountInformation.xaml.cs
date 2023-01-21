@@ -63,7 +63,6 @@ namespace Day07AzureDb
                 ResetTbx();
                 MessageBox.Show("Customer registration complete", "Customer registration", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                //dbContext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Users]");
             }
             catch (Exception ex)
             {
@@ -74,14 +73,9 @@ namespace Day07AzureDb
 
         public void FindUser()
         {
-            //Globals.dbContext = new SmartBankingDbContext();
-            // Using LINQ
             Users user = LoginPage.CurrentUser.users;
             Customer customer = LoginPage.CurrentUser.customer;
-            /*                var user = (from userOne in Globals.dbContext.UserEmployees
-                                        where userOne.User_id == 1
-                                        select userOne).FirstOrDefault();
-            */
+
             if (customer != null)
             {
                 TbxFullName.Text = customer.Full_name;
@@ -106,10 +100,7 @@ namespace Day07AzureDb
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "txt file (*.txt)|*.txt|All files (*.*)|*.*";
-            //saveFileDialog.FilterIndex = 1;
-            //saveFileDialog.RestoreDirectory = true;
             saveFileDialog.DefaultExt = "txt";
-            //saveFileDialog.AddExtension = true;
 
             if (saveFileDialog.ShowDialog() == true)
             {
@@ -123,6 +114,13 @@ namespace Day07AzureDb
                 if (user != null)
                 {
                     userInfoLines.Add($"{user.Full_name};{user.Email};{user.Password};{user.Phone_number};{user.Account_type}");
+                }
+
+                var customer = LoginPage.CurrentUser.customer;
+
+                if (customer != null)
+                {
+                    userInfoLines.Add($"{customer.Full_name};{customer.Email};{customer.Password};{customer.Phone_number};{customer.Account_type}");
                 }
                 File.WriteAllLines(fileName, userInfoLines);
                 MessageBox.Show("File save successfully.");
