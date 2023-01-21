@@ -81,7 +81,7 @@ namespace Day07AzureDb
             if (accounts != null)
             {
                 int selectedAccount = int.Parse(accounts.SelectedItem.ToString());
-                LblCurrentBalance.Content = "$ " + Globals.dbContext.Accounts.FirstOrDefault(a => a.Account_id == selectedAccount).Account_balance;
+                LblCurrentBalance.Content = Globals.dbContext.Accounts.FirstOrDefault(a => a.Account_id == selectedAccount).Account_balance;
             }
 
         }

@@ -86,6 +86,7 @@ namespace Day07AzureDb
                 TbxAddress.Text = customer.Address;
                 TbxAccountType.Text = customer.Account_type;
                 TbxAccountType.IsEnabled = false;
+                TbxAccountBalance.IsEnabled = false;
                 BtnAdd.Visibility = Visibility.Hidden;
 
                 Account account = Globals.dbContext.Accounts.FirstOrDefault(c => c.Customer_id == customer.Customer_id);
