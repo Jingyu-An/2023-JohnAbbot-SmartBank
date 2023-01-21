@@ -9,7 +9,6 @@
       Title="AccountInformation"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-      Background="White"
       >
 
     <Grid>

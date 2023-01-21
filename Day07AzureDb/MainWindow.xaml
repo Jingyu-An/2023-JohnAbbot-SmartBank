@@ -24,7 +24,7 @@
                 <TextBlock Text="Status Bar" Name="LblStatus" />
             </StatusBarItem>
         </StatusBar>
-        <StackPanel DockPanel.Dock="top" Orientation="Vertical" VerticalAlignment="Top">
+        <StackPanel DockPanel.Dock="top" Orientation="Vertical" VerticalAlignment="Top" Height="500">
             <StackPanel.Resources>
                 <Style TargetType="{x:Type TabItem}" x:Key="TabStyle">
                     <Setter Property="Width" Value="100"/>
@@ -32,7 +32,7 @@
                     <Setter Property="FontSize" Value="15"/>
                 </Style>
                 <Style TargetType="{x:Type Frame}" x:Key="FrameStyle">
-                    <Setter Property="Height" Value="410"/>
+                    <Setter Property="Height" Value="500"/>
                     <Setter Property="Background">
                         <Setter.Value>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
