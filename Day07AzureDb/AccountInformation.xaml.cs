@@ -89,7 +89,10 @@ namespace Day07AzureDb
                 BtnAdd.Visibility = Visibility.Hidden;
 
                 Account account = Globals.dbContext.Accounts.FirstOrDefault(c => c.Customer_id == customer.Customer_id);
-                TbxAccountNumber.Text = account.Account_id.ToString();
+                if (account != null)
+                {
+                    TbxAccountNumber.Text = account.Account_id.ToString();
+                }
             }
             else
             {

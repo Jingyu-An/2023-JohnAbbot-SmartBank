@@ -61,16 +61,29 @@ namespace Day07AzureDb
                 {
                     ComboBoxAccounts.Items.Add(account.accountID);
                 }
+
+
             }
             else if (user != null)
             {
                 LblName.Content = user.Full_name + " (Employee)";
                 ComboBoxAccounts.IsEnabled = false;
                 TbxAmount.IsEnabled = false;
-                TbsRecipient.IsEnabled = false;
-                TbsDesc.IsEnabled = false;
+                TbxRecipient.IsEnabled = false;
+                TbxDesc.IsEnabled = false;
                 BtnSend.IsEnabled = false;
             }
+        }
+        private void ComboBoxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBox accounts = (ComboBox)sender;
+
+            if (accounts != null)
+            {
+                int selectedAccount = int.Parse(accounts.SelectedItem.ToString());
+                LblCurrentBalance.Content = "$ " + Globals.dbContext.Accounts.FirstOrDefault(a => a.Account_id == selectedAccount).Account_balance;
+            }
+
         }
 
     }
