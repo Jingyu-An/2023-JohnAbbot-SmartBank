@@ -23,7 +23,7 @@ namespace Day07AzureDb
     /// </summary>
     public partial class LoginPage : Window
     {
-        
+
         public LoginPage()
         {
             InitializeComponent();
@@ -61,48 +61,39 @@ namespace Day07AzureDb
             string username = TxtUsername.Text;
             string password = TxtPassword.Password;
 
-            using (Globals.dbContext)
+            Users user = Globals.dbContext.UserEmployees.FirstOrDefault(u => u.Full_name == username && u.Password == password);
+            Customer customer = Globals.dbContext.Customers.FirstOrDefault(u => u.Full_name == username && u.Password == password);
+            MainWindow mainWindow = new MainWindow();
+            if (user != null)
             {
-                Users user = Globals.dbContext.UserEmployees.FirstOrDefault(u => u.Full_name == username && u.Password == password);
-                Customer customer = Globals.dbContext.Customers.FirstOrDefault(u => u.Full_name == username && u.Password == password);
-                MainWindow mainWindow = new MainWindow();
-                if (user != null)
-                {
-                    CurrentUser.users = user;
-                   
-                    Application.Current.MainWindow = mainWindow;
-                    mainWindow.Show();
-                    this.Close();
-                } 
-                else if (customer != null)
-                {
-                    CurrentUser.customer = customer;
-                    int userID = 0;
-                    var result = from accounts in Globals.dbContext.Accounts
-                                 where accounts.Customer_id == customer.Customer_id
-                                 join users in Globals.dbContext.UserEmployees
-                                 on accounts.User_id equals users.User_id into u
-                                 from users in u
-                                 select new { findUserId = users.User_id };
+                CurrentUser.users = user;
 
-                    foreach (var item in result)
-                    {
-                        userID = item.findUserId;
-                    }
+                Application.Current.MainWindow = mainWindow;
+                mainWindow.Show();
+                this.Close();
+            }
+            else if (customer != null)
+            {
+                CurrentUser.customer = customer;
+                var result = (from accounts in Globals.dbContext.Accounts
+                              where accounts.Customer_id == customer.Customer_id
+                              join users in Globals.dbContext.UserEmployees
+                              on accounts.User_id equals users.User_id into u
+                              from users in u
+                              select users).FirstOrDefault();
 
-                    CurrentUser.users = Globals.dbContext.UserEmployees.FirstOrDefault(u => u.User_id == userID);
+                CurrentUser.users = result;
 
-                    Application.Current.MainWindow = mainWindow;
-                    mainWindow.Show();
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid username or password.");
-                }
+                Application.Current.MainWindow = mainWindow;
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
             }
         }
-      
+
 
         public static class CurrentUser
         {

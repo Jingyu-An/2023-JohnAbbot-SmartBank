@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -35,37 +36,34 @@ namespace Day07AzureDb
         {
             try
             {
-                using (Globals.dbContext)
+                var newCustomer = new Customer
                 {
-                    var newCustomer = new Customer
-                    {
-                        Full_name = TbxFullName.Text,
-                        Phone_number = TbxPhoneNumber.Text,
-                        Password = TbxPassword.Text,
-                        Email = TbxEmail.Text,
-                        Address = TbxAddress.Text,
-                        Created_at = DateTime.Now,
-                        Account_type = TbxAccountNumber.Text
-                    };
+                    Full_name = TbxFullName.Text,
+                    Phone_number = TbxPhoneNumber.Text,
+                    Password = TbxPassword.Text,
+                    Email = TbxEmail.Text,
+                    Address = TbxAddress.Text,
+                    Created_at = DateTime.Now,
+                    Account_type = TbxAccountNumber.Text
+                };
 
-                    Globals.dbContext.Customers.Add(newCustomer);
-                    Globals.dbContext.SaveChanges();
+                Globals.dbContext.Customers.Add(newCustomer);
+                Globals.dbContext.SaveChanges();
 
-                    var newAccount = new Account
-                    {
-                        Customer_id = newCustomer.Customer_id,
-                        User_id = LoginPage.CurrentUser.users.User_id,
-                        Bank_branch_address = "Smart Bank in Montreal",
-                        Phone_number_branch = "4340000000"
-                    };
-                    Globals.dbContext.Accounts.Add(newAccount);
-                    Globals.dbContext.SaveChanges();
+                var newAccount = new Account
+                {
+                    Customer_id = newCustomer.Customer_id,
+                    User_id = LoginPage.CurrentUser.users.User_id,
+                    Bank_branch_address = "Smart Bank in Montreal",
+                    Phone_number_branch = "4340000000"
+                };
+                Globals.dbContext.Accounts.Add(newAccount);
+                Globals.dbContext.SaveChanges();
 
-                    ResetTbx();
-                    MessageBox.Show("Customer registration complete", "Customer registration", MessageBoxButton.OK, MessageBoxImage.Information);
+                ResetTbx();
+                MessageBox.Show("Customer registration complete", "Customer registration", MessageBoxButton.OK, MessageBoxImage.Information);
 
-                    //dbContext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Users]");
-                }
+                //dbContext.Database.ExecuteSqlCommand("TRUNCATE TABLE [Users]");
             }
             catch (Exception ex)
             {
@@ -78,33 +76,30 @@ namespace Day07AzureDb
         {
             //Globals.dbContext = new SmartBankingDbContext();
             // Using LINQ
-            using (Globals.dbContext)
+            Users user = LoginPage.CurrentUser.users;
+            Customer customer = LoginPage.CurrentUser.customer;
+            /*                var user = (from userOne in Globals.dbContext.UserEmployees
+                                        where userOne.User_id == 1
+                                        select userOne).FirstOrDefault();
+            */
+            if (customer != null)
             {
-                Users user = LoginPage.CurrentUser.users;
-                Customer customer = LoginPage.CurrentUser.customer;
-                /*                var user = (from userOne in Globals.dbContext.UserEmployees
-                                            where userOne.User_id == 1
-                                            select userOne).FirstOrDefault();
-                */
-                if (customer != null)
-                {
-                    TbxFullName.Text = customer.Full_name;
-                    TbxEmail.Text = customer.Email;
-                    TbxPhoneNumber.Text = customer.Phone_number.ToString();
-                    TbxPassword.Text = customer.Password;
-                    TbxAddress.Text = customer.Address;
-                    TbxAccountNumber.Text = customer.Account_type;
-                    TbxAccountNumber.IsEnabled = false;
-                    BtnAdd.Visibility = Visibility.Hidden;
-                }
-                else
-                {
-                    BtnUpdate.Visibility = Visibility.Hidden;
-                }
+                TbxFullName.Text = customer.Full_name;
+                TbxEmail.Text = customer.Email;
+                TbxPhoneNumber.Text = customer.Phone_number.ToString();
+                TbxPassword.Text = customer.Password;
+                TbxAddress.Text = customer.Address;
+                TbxAccountType.Text = customer.Account_type;
+                TbxAccountType.IsEnabled = false;
+                BtnAdd.Visibility = Visibility.Hidden;
 
+                Account account = Globals.dbContext.Accounts.FirstOrDefault(c => c.Customer_id == customer.Customer_id);
+                TbxAccountNumber.Text = account.Account_id.ToString();
             }
-
-
+            else
+            {
+                BtnUpdate.Visibility = Visibility.Hidden;
+            }
         }
 
         private void BtnSaveFile_Click(object sender, RoutedEventArgs e)
@@ -118,49 +113,46 @@ namespace Day07AzureDb
 
             if (saveFileDialog.ShowDialog() == true)
             {
-                using (Globals.dbContext)
+                string fileName = saveFileDialog.FileName;
+                var user = (from userOne in Globals.dbContext.UserEmployees
+                            where userOne.User_id == 1
+                            select userOne).FirstOrDefault();
+
+                var userInfoLines = new List<string>();
+
+                if (user != null)
                 {
-                    string fileName = saveFileDialog.FileName;
-                    var user = (from userOne in Globals.dbContext.UserEmployees
-                                where userOne.User_id == 1
-                                select userOne).FirstOrDefault();
-
-                    var userInfoLines = new List<string>();
-
-                    if (user != null)
-                    {
-                        userInfoLines.Add($"{user.Full_name};{user.Email};{user.Password};{user.Phone_number};{user.Account_type}");
-                    }
-                    File.WriteAllLines(fileName, userInfoLines);
-                    MessageBox.Show("File save successfully.");
+                    userInfoLines.Add($"{user.Full_name};{user.Email};{user.Password};{user.Phone_number};{user.Account_type}");
                 }
+                File.WriteAllLines(fileName, userInfoLines);
+                MessageBox.Show("File save successfully.");
             }
         }
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            using (Globals.dbContext)
+            try
             {
-                var user = (from userOne in Globals.dbContext.UserEmployees
-                            where userOne.User_id == 1
-                            select userOne).FirstOrDefault();
+                Customer customer = LoginPage.CurrentUser.customer;
+                Customer updateCustomer = Globals.dbContext.Customers.FirstOrDefault(c => c.Customer_id == customer.Customer_id);
 
-                if (user != null)
+                if (updateCustomer != null)
                 {
-                    user.Full_name = TbxFullName.Text;
-                    user.Email = TbxEmail.Text;
-                    user.Phone_number = TbxPhoneNumber.Text;
-                    user.Password = TbxPassword.Text;
-                    user.Address = TbxAddress.Text;
-                    user.Account_type = TbxAccountNumber.Text;
+                    updateCustomer.Full_name = TbxFullName.Text;
+                    updateCustomer.Email = TbxEmail.Text;
+                    updateCustomer.Phone_number = TbxPhoneNumber.Text;
+                    updateCustomer.Password = TbxPassword.Text;
+                    updateCustomer.Address = TbxAddress.Text;
+                    updateCustomer.Created_at = DateTime.Now;
+                    updateCustomer.Account_type = TbxAccountType.Text;
 
                     Globals.dbContext.SaveChanges();
                     MessageBox.Show("User updated successfully");
                 }
-                else
-                {
-                    MessageBox.Show("User not found");
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Customer update fail: " + ex.Message, "Customer update", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

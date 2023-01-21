@@ -12,7 +12,7 @@
 
     <Grid>
         <StackPanel Orientation="Horizontal" Margin="10 10 10 10">
-            <StackPanel Orientation="Vertical" Width="300" Margin="20 40 10 10">
+            <StackPanel Orientation="Vertical" Width="300" Margin="40 40 30 10">
                 <Label Content="Mortgage principal amount"/>
                 <TextBox x:Name="TbxMortgageAmount" PreviewTextInput="TbxMortgageAmount_PreviewTextInput" TextChanged="TbxMortgageAmount_TextChanged"/>
                 <Label Content="Interest rate"/>
@@ -22,7 +22,7 @@
                 <Label Content="Payment frequency"/>
                 <ComboBox x:Name="ComboboxPayFreq" SelectionChanged="ComboboxRate_SelectionChanged"/>
             </StackPanel>
-            <StackPanel Orientation="Vertical" Width="400">
+            <StackPanel Orientation="Vertical" Width="400" Margin="0 20 10 20">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Label}" x:Key="mystyle">
                         <Setter Property="Width" Value="150"/>

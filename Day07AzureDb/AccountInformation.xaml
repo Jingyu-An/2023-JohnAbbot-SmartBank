@@ -29,18 +29,21 @@
         <TextBlock  Text="Email:" Margin="141,0,603,-124" Grid.ColumnSpan="2" x:Name="LblEmail" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
         <TextBox Grid.Row="0" Grid.Column="1" Margin="213,134,194,-124" materialDesign:HintAssist.Hint="Enter your email" Name="TbxEmail" />
 
-        <TextBlock  Text="Address:" Margin="141,0,603,-179" Grid.ColumnSpan="2" x:Name="LblAddress" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
-        <TextBox  Grid.Column="1" Margin="213,189,194,-179" materialDesign:HintAssist.Hint="Enter your address" Name="TbxAddress"/>
+        <TextBlock  Text="Address:" Margin="141,0,603,-176" Grid.ColumnSpan="2" x:Name="LblAddress" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
+        <TextBox  Grid.Column="1" Margin="213,186,194,-176" materialDesign:HintAssist.Hint="Enter your address" Name="TbxAddress"/>
 
-        <TextBlock  Text="Phone Number:" Margin="141,0,566,-231" Grid.ColumnSpan="2" x:Name="LblFullPhoneNumber" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
-        <TextBox  Grid.Column="1" Margin="262,242,194,-231" materialDesign:HintAssist.Hint="Enter your phone number" Name="TbxPhoneNumber" />
+        <TextBlock  Text="Phone Number:" Margin="141,0,566,-224" Grid.ColumnSpan="2" x:Name="LblFullPhoneNumber" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
+        <TextBox  Grid.Column="1" Margin="262,235,194,-224" materialDesign:HintAssist.Hint="Enter your phone number" Name="TbxPhoneNumber" />
 
-        <TextBlock Margin="141,0,563,-278" Grid.ColumnSpan="2" x:Name="LblAccountNumber" FontWeight="DemiBold" VerticalAlignment="Bottom"><Run Text="Account "/><Run Language="ko-kr" Text="Type"/><Run Text=":"/></TextBlock>
-        <TextBox Grid.Column="1" Margin="262,293,194,-283" materialDesign:HintAssist.Hint="Enter your account type" Name="TbxAccountNumber" />
+        <TextBlock Margin="141,0,563,-317" Grid.ColumnSpan="2" x:Name="LblAccountType" FontWeight="DemiBold" VerticalAlignment="Bottom"><Run Text="Account "/><Run Language="ko-kr" Text="Type"/><Run Text=":"/></TextBlock>
+        <TextBox Grid.Column="1" Margin="262,332,194,-322" materialDesign:HintAssist.Hint="Enter your account type" Name="TbxAccountType" />
 
-        <Button Name="BtnSaveFile"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Save" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnSaveFile_Click" Grid.Column="1" Margin="193,389,507,-385" RenderTransformOrigin="0.125,0.591"/>
-        <Button x:Name="BtnUpdate"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Update" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnUpdate_Click" Grid.Column="1" Margin="441,389,259,-385"/>
-        <Button x:Name="BtnAdd" materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Add" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnAdd_Click" Grid.Column="1" Margin="439,389,261,-385"/>
+        <Button Name="BtnSaveFile"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Save" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnSaveFile_Click" Grid.Column="1" Margin="193,428,507,-424" RenderTransformOrigin="0.125,0.591"/>
+        <Button x:Name="BtnUpdate"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Update" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnUpdate_Click" Grid.Column="1" Margin="439,426,261,-422"/>
+        <Button x:Name="BtnAdd" materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Add" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="BtnAdd_Click" Grid.Column="1" Margin="439,428,261,-424"/>
+        
+        <TextBlock  Text="Account Number:" Margin="141,0,566,-271" Grid.ColumnSpan="2" x:Name="Lblumber" FontWeight="DemiBold" VerticalAlignment="Bottom"/>
+        <TextBox  Grid.Column="1" Margin="262,282,194,-271" materialDesign:HintAssist.Hint="Automatically create" x:Name="TbxAccountNumber" IsEnabled="False" />
 
     </Grid>
 </Page>

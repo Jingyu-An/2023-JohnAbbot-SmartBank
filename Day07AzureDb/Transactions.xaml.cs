@@ -46,33 +46,30 @@ namespace Day07AzureDb
 
         public void FindUser()
         {
-            using (Globals.dbContext)
+            Users user = LoginPage.CurrentUser.users;
+            Customer customer = LoginPage.CurrentUser.customer;
+
+            if (customer != null)
             {
-                Users user = LoginPage.CurrentUser.users;
-                Customer customer = LoginPage.CurrentUser.customer;
+                LblName.Content = customer.Full_name;
 
-                if (customer != null)
+                var result = from accounts in Globals.dbContext.Accounts
+                             where accounts.Customer_id == customer.Customer_id
+                             select new { accountID = accounts.Account_id };
+
+                foreach (var account in result)
                 {
-                    LblName.Content = customer.Full_name;
-
-                    var result = from accounts in Globals.dbContext.Accounts
-                                 where accounts.Customer_id == customer.Customer_id
-                                 select new { accountID = accounts.Account_id };
-
-                    foreach (var account in result)
-                    {
-                        ComboBoxAccounts.Items.Add(account.accountID);
-                    }
+                    ComboBoxAccounts.Items.Add(account.accountID);
                 }
-                else if (user != null)
-                {
-                    LblName.Content = user.Full_name + " (Employee)";
-                    ComboBoxAccounts.IsEnabled = false;
-                    TbxAmount.IsEnabled = false;
-                    TbsRecipient.IsEnabled = false;
-                    TbsDesc.IsEnabled = false;
-                    BtnSend.IsEnabled = false;
-                }
+            }
+            else if (user != null)
+            {
+                LblName.Content = user.Full_name + " (Employee)";
+                ComboBoxAccounts.IsEnabled = false;
+                TbxAmount.IsEnabled = false;
+                TbsRecipient.IsEnabled = false;
+                TbsDesc.IsEnabled = false;
+                BtnSend.IsEnabled = false;
             }
         }
 
