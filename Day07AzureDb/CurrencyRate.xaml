@@ -12,15 +12,50 @@
       >
 
     <Grid>
-        <DatePicker HorizontalAlignment="Left" Height="28" Margin="22,10,0,0" VerticalAlignment="Top" Width="213"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="107*"/>
+            <RowDefinition Height="343*"/>
+        </Grid.RowDefinitions>
+        <DatePicker Name="CurrDatePicker" HorizontalAlignment="Left" Height="28" Margin="567,69,0,0" VerticalAlignment="Top" Width="213"/>
 
-        <Button x:Name="BtnSignup"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Submit" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="Button_Click" Margin="258,10,442,408"/>
+        <Button x:Name="BtnSignup"  materialDesign:ElevationAssist.Elevation="Dp0" Width="100" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Submit" Background="LightSkyBlue" BorderBrush="LightSkyBlue" Click="Button_Click" Margin="674,55,26,256" Grid.Row="1"/>
+        <Label Content="Currency Converter" 
+                       FontSize="25" FontWeight="Bold" Height="80" Margin="257,23,257,4"/>
+        <StackPanel Orientation="Horizontal" Margin="0,65,158,127" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" Width="300" Height="124">
+                <Label Content="FROM"/>
+                <ComboBox x:Name="ComboboxFrom" SelectionChanged="ComboboxFrom_SelectionChanged" />
+                <Label Content="TO"/>
+                <ComboBox x:Name="ComboboxTo" SelectionChanged="ComboboxTo_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="338" Height="136">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Label}" x:Key="mystyle">
+                        <Setter Property="Width" Value="150"/>
+                        <Setter Property="FontSize" Value="15"/>
+                        <Setter Property="Margin" Value="0 10"/>
+                    </Style>
+                </StackPanel.Resources>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Amount" 
+                           Style="{StaticResource mystyle}"/>
 
-        <ListView Name ="Temp" Margin="10,56,10,41"/>
-        <ListView Name ="CurrencyLv" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,56,10,41">
+                    <TextBox  x:Name="TxtAmount" TextWrapping="Wrap" Text="0" Width="120" MinWidth="100" FontSize="15" Margin="0 10" VerticalAlignment="Center" HorizontalAlignment="Right" TextAlignment="Right"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Convert" 
+                           Style="{StaticResource mystyle}"/>
+                    <Label Content="{Binding SelectedItem, ElementName=ComboboxRate}"
+                           Style="{StaticResource mystyle}" Width="230"/>
+                </StackPanel>
+
+            </StackPanel>
+        </StackPanel>
+
+        <ListView Name ="CurrencyLv" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="0,139,0,0" HorizontalAlignment="Center" Width="650" Height="194" VerticalAlignment="Top" Grid.Row="1" >
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Unit" Width="70"  DisplayMemberBinding="{Binding Unit}" />
+                    <GridViewColumn Header="Unit" Width="100"  DisplayMemberBinding="{Binding Unit}" />
                     <GridViewColumn Header="CountryName" Width="250" DisplayMemberBinding="{Binding CountryName}" />
                     <GridViewColumn Header="TTB" Width="100" DisplayMemberBinding="{Binding TTB}" />
                     <GridViewColumn Header="TTS" Width="100" DisplayMemberBinding="{Binding TTS}" />
@@ -28,6 +63,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+
 
 
     </Grid>

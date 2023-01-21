@@ -26,10 +26,42 @@ namespace Day07AzureDb
     {
         List<Currency> currencyList = new List<Currency>();
 
+        public List<string> CurrencyFromList { get; set; } = new List<string>()
+        {
+            "CANADA - CAD",
+            "US     - USD",
+            "KOREA  - KRW",
+           
+        };
+        public List<string> CurrencyToList { get; set; } = new List<string>()
+        {
+         
+            "US     - USD",
+            "KOREA  - KRW",
+            "CANADA - CAD",
+
+        };
+
         public CurrencyRate()
         {
             InitializeComponent();
+            AddCountryListAll();
             CurrencyLv.ItemsSource = currencyList;
+        }
+
+        private void AddCountryListAll()
+        {
+   
+                CurrencyFromList.ForEach(currencyFrom =>
+                {              
+                    ComboboxFrom.Items.Add(currencyFrom);
+               });
+
+            CurrencyToList.ForEach(currencyTo =>
+            {
+                ComboboxTo.Items.Add(currencyTo);
+            });
+
         }
 
         private bool StringToJson(string strTmp, ref string strErr)
@@ -135,5 +167,14 @@ namespace Day07AzureDb
             }
         }
 
+        private void ComboboxFrom_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboboxTo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

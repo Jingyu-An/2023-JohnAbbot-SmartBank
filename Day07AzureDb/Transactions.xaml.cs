@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.Pkcs;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,10 +28,9 @@ namespace Day07AzureDb
             try
             {
                 Globals.dbContext = new SmartBankDbContext(); // Exceptions
-              
-
-              
-            }catch(Exception ex)
+                FindUser();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -38,28 +38,43 @@ namespace Day07AzureDb
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
-            
             Operation operations = new Operation(0, 0, 0, "text", 0);
             Globals.dbContext.Operations.Add(operations);
             Globals.dbContext.SaveChanges();
             MessageBox.Show("Send money successfully!");
         }
 
+        public void FindUser()
+        {
+            using (Globals.dbContext)
+            {
+                Users user = LoginPage.CurrentUser.users;
+                Customer customer = LoginPage.CurrentUser.customer;
+
+                if (customer != null)
+                {
+                    LblName.Content = customer.Full_name;
+
+                    var result = from accounts in Globals.dbContext.Accounts
+                                 where accounts.Customer_id == customer.Customer_id
+                                 select new { accountID = accounts.Account_id };
+
+                    foreach (var account in result)
+                    {
+                        ComboBoxAccounts.Items.Add(account.accountID);
+                    }
+                }
+                else if (user != null)
+                {
+                    LblName.Content = user.Full_name + " (Employee)";
+                    ComboBoxAccounts.IsEnabled = false;
+                    TbxAmount.IsEnabled = false;
+                    TbsRecipient.IsEnabled = false;
+                    TbsDesc.IsEnabled = false;
+                    BtnSend.IsEnabled = false;
+                }
+            }
+        }
+
     }
-    /*
-     
-            var result = from trip in Globals.dbContext.Trips.AsEnumerable()
-                         join user in Globals.dbContext.Users.AsEnumerable()
-                         on trip.Id equals user.Trip_id into dataKey
-                         from user in dataKey
-                         select new {
-
-                                 Destination = trip.Destination
-                         };
-
-
-
-            MessageBox.Show(result.First().ToString());
-     */
 }
