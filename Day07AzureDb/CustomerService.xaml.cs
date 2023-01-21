@@ -64,8 +64,10 @@ namespace Day07AzureDb
                         mail.Subject = TbxSubject.Text;
 
                         mail.BodyEncoding = Encoding.UTF8;
-                        mail.Body = $" Name: {TbxName.Text}\n Phone: {TbxPhone.Text}\n\n" +
-                            StringFromRichTextBox(RTBBody);
+                        mail.Body = $"- Name: {TbxName.Text}\n- Phone: {TbxPhone.Text}\n\n" +
+                            StringFromRichTextBox(RTBBody) + 
+                            $"- Employee: {LoginPage.CurrentUser.users.Full_name}\n" +
+                            $"- Email: {LoginPage.CurrentUser.users.Email}";
 
                         mail.IsBodyHtml = isBodyHtml;
 
@@ -101,7 +103,7 @@ namespace Day07AzureDb
 
             // The Text property on a TextRange object returns a string
             // representing the plain text content of the TextRange.
-            return textRange.Text;
+            return textRange.Text + "\n\n\n\n";
         }
 
         private void TbxPhone_PreviewTextInput(object sender, TextCompositionEventArgs e)
