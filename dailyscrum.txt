@@ -153,3 +153,38 @@ Hyunju
 	- Currency calculator 
 
 3. No need
+
+======================================================================================================================================================================
+
+Thursday, January 21, 2023:
+Daily Srum Meeting:
+1. What I have done / not done since last Scrum?
+2. What I plan to do from this scrum to next? (next 24 hours)
+3. Where do I need assistance? What do I need to figure out?
+
+Patrick:
+1. Validation for Customer and Users
+2. Plan until next scrum:
+	- Look into charts
+	- touch ups
+	- PowerPoints
+
+3. Needed help for migration of database
+
+Jingyu
+1. Completed touch ups of UI, edit validations
+2. Plan until next scrum:
+	- PowerPoints
+	- Unit test
+	
+3.No need
+
+Hyunju
+1. Foreign key relationships completed, calculator, 
+2. Plan until next scrum:
+	- Transactions account balance amount
+	- Currency page touch ups
+	- Wizard installation
+
+3. No need
+
