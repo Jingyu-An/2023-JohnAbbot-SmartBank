@@ -85,6 +85,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Operation.cs" />
+    <Compile Include="Signup.xaml.cs">
+      <DependentUpon>Signup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SmartBankDbContext.cs" />
     <Compile Include="Users.cs" />
     <Compile Include="Globals.cs" />
@@ -134,6 +137,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AccountInformation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Signup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

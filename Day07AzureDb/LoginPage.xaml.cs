@@ -100,5 +100,13 @@ namespace Day07AzureDb
             public static Users users { get; set; }
             public static Customer customer { get; set; }
         }
+
+        private void BtnSignup_Click(object sender, RoutedEventArgs e)
+        {
+            Signup signup = new Signup();
+            Application.Current.MainWindow = signup;
+            signup.Show();
+            this.Close();
+        }
     }
 }
