@@ -57,12 +57,13 @@ namespace Day07AzureDb
 
         private void JsonDataSet(int iRow, JsonObjectCollection joc)
         {
-           
-            string unit ="";
-            string countryName="";
+
+            string unit = "";
+            string countryName = "";
             string ttb = "";
             string tts = "";
             string deal = "";
+
             if (joc["result"].ToString().Contains("1"))
             {
                 unit = joc["cur_unit"].ToString().Split(':')[1].Replace('"', ' ').Trim();
@@ -72,7 +73,33 @@ namespace Day07AzureDb
                 deal = joc["deal_bas_r"].ToString().Split(':')[1].Replace('"', ' ').Trim();
             }
 
-            currencyList.Add(new Currency(unit, countryName, ttb, tts, deal));
+            bool us = unit.Equals("USD");
+            bool kor = unit.Equals("KRW");
+            bool cad = unit.Equals("CAD");
+
+
+
+
+            if (us || kor || cad)
+            {
+                if (us)
+                {
+                        countryName =  countryName.Replace("미국 달러", "US");
+                }
+                else if (kor)
+                {
+                    countryName = countryName.Replace("한국 원", "KOREA");
+                }
+                else if (cad)
+                {
+                    countryName = countryName.Replace("캐나다 달러", "CANADA");
+                }
+
+
+                currencyList.Add(new Currency(unit, countryName, ttb, tts, deal));
+            }
+
+
             CurrencyLv.Items.Refresh();
 
 
@@ -81,10 +108,10 @@ namespace Day07AzureDb
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            DateTime currDatePicker = CurrDatePicker.SelectedDate.Value;
             string strURL = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey="
                 + "UKWgdmFHL143H1oAPWs9IuGM2y25uiA2&searchdate=" +
-                DateTime.Now.ToString("yyyyMMdd") + "&data=AP01";
-
+               currDatePicker.ToString("yyyyMMdd") + "&data=AP01";
 
 
             HttpWebRequest hwr = (HttpWebRequest)WebRequest.Create(strURL);
@@ -99,7 +126,7 @@ namespace Day07AzureDb
                     string strErr = "";
                     if (!StringToJson(strResult, ref strErr))
                     {
-                        MessageBox.Show(strErr);
+                        MessageBox.Show("It is not a business day and inquiry is not possible.");
                     }
                 }
                 sr.Close();
@@ -107,5 +134,6 @@ namespace Day07AzureDb
 
             }
         }
+
     }
 }
