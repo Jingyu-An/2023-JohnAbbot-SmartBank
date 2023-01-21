@@ -76,6 +76,8 @@ namespace Day07AzureDb
         {
             Users user = LoginPage.CurrentUser.users;
             Customer customer = LoginPage.CurrentUser.customer;
+            
+            
 
             if (customer != null)
             {
@@ -92,6 +94,7 @@ namespace Day07AzureDb
                 if (account != null)
                 {
                     TbxAccountNumber.Text = account.Account_id.ToString();
+                    TbxAccountBalance.Text = account.Account_balance.ToString();
                 }
             }
             else

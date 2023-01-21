@@ -99,6 +99,7 @@ namespace Day07AzureDb
         {
             public static Users users { get; set; }
             public static Customer customer { get; set; }
+            
         }
 
         private void BtnSignup_Click(object sender, RoutedEventArgs e)
