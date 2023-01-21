@@ -25,15 +25,28 @@ namespace Day07AzureDb
 
         [Key]
         public int User_id { get; set; }
+
         private string _email;
-        
+        [Required]
         public string Email
         {
-            get; set;
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                if (Regex.IsMatch(value, @"^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9]+[.]+[a-zA-Z]+$"))
+                {
+                    throw new FormatException("Please insert a valid email address.");
+                }
+                _email = value;
 
+            }
         }
 
         private string _full_name;
+        [Required]
         public string Full_name
         {
             get
@@ -44,18 +57,68 @@ namespace Day07AzureDb
             {
                 if (!Regex.IsMatch(value, @"^[a-zA-Z\s]+$"))
                 {
-                    throw new ArgumentException("Invalid inputs, please insert letters only.");
+                    throw new FormatException("Invalid inputs, please insert letters only.");
                 }
                 if (value.Length < 2 || value.Length > 30)
                 {
-                    throw new ArgumentException("Minimum and/or maximum character length exceeded(2-30).");
+                    throw new FormatException("Minimum and/or maximum character length exceeded(2-30).");
                 }
                 _full_name = value;
             }
         }
-        public string Phone_number { get; set; }
-        public string Password { get; set; }
-        public string Address { get; set; }
+
+        private string _phone_number;
+        [Required]
+        public string Phone_number
+        {
+            get
+            {
+                return _phone_number;
+
+            }
+            set
+            {
+                if (!Regex.IsMatch(value, @"^\d{10}"))
+                {
+                    throw new FormatException("Please insert 10 numbers, no dashes please.");
+                }
+                _phone_number = value;
+            }
+        }
+        private string _password;
+        [Required]
+        public string Password
+        {
+            get
+            {
+                return _password;
+            }
+            set
+            {
+                if (!Regex.IsMatch(value, @"^[\d\w]{5,10}$"))
+                {
+                    throw new FormatException("Please insert a password between 5 to 10 characters long");
+                }
+                _password = value;
+            }
+        }
+        private string _address;
+        [Required]
+        public string Address
+        {
+            get
+            {
+                return _address;
+            }
+            set
+            {
+                if (!Regex.IsMatch(value, @"^\d{1,10}\s+[a-zA-Z]+$"))
+                {
+                    throw new FormatException("Please start with street number and ");
+                }
+                _address = value;
+            }
+        }
         public DateTime Created_at { get; set; }
         public string Account_type { get; set; }
 
