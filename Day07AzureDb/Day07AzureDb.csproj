@@ -79,13 +79,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Migrations\202301190241562_UpdateDb.cs" />
-    <Compile Include="Migrations\202301190241562_UpdateDb.designer.cs">
-      <DependentUpon>202301190241562_UpdateDb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202301190436455_SmartMygration.cs" />
-    <Compile Include="Migrations\202301190436455_SmartMygration.designer.cs">
-      <DependentUpon>202301190436455_SmartMygration.cs</DependentUpon>
+    <Compile Include="Migrations\202301201935548_foriegnkey.cs" />
+    <Compile Include="Migrations\202301201935548_foriegnkey.designer.cs">
+      <DependentUpon>202301201935548_foriegnkey.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Operation.cs" />
@@ -164,11 +160,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202301190241562_UpdateDb.resx">
-      <DependentUpon>202301190241562_UpdateDb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202301190436455_SmartMygration.resx">
-      <DependentUpon>202301190436455_SmartMygration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202301201935548_foriegnkey.resx">
+      <DependentUpon>202301201935548_foriegnkey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

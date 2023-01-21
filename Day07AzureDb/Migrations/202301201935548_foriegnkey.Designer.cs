@@ -7,13 +7,13 @@ namespace Day07AzureDb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class UpdateDb : IMigrationMetadata
+    public sealed partial class foriegnkey : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdateDb));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(foriegnkey));
         
         string IMigrationMetadata.Id
         {
-            get { return "202301190241562_UpdateDb"; }
+            get { return "202301201935548_foriegnkey"; }
         }
         
         string IMigrationMetadata.Source
