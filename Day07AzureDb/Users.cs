@@ -12,7 +12,7 @@ namespace Day07AzureDb
     {
         public Users() { }
 
-        public Users(string email, string full_name, string phone_number, string password, string address, DateTime created_at, string account_type)
+        public Users(string email, string full_name, string phone_number, string password, string address, DateTime created_at, string account_type, int account_balance)
         {
             Email = email;
             Full_name = full_name;
@@ -123,5 +123,5 @@ namespace Day07AzureDb
         public string Account_type { get; set; }
 
     }
-    
+
 }

@@ -12,7 +12,7 @@ namespace Day07AzureDb
     {
         public Customer() { }
 
-        public Customer(string email, string full_name, string phone_number, string password, string address, DateTime created_at, string account_type)
+        public Customer(string email, string full_name, string phone_number, string password, string address, DateTime created_at, string account_type, int account_balance)
         {
             Email = email;
             Full_name = full_name;
@@ -21,10 +21,19 @@ namespace Day07AzureDb
             Address = address;
             Created_at = created_at;
             Account_type = account_type;
+            AccountBalance = account_balance;
         }
 
         [Key]
         public int Customer_id { get; set; }
+
+        private int _accountBalance;
+        [Required]
+        public int AccountBalance
+        {
+            get { return _accountBalance; }
+            set { _accountBalance = value; }
+        }
 
         private string _email;
         [Required]

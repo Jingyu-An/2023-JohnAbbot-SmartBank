@@ -44,7 +44,7 @@ namespace Day07AzureDb
                     Email = TbxEmail.Text,
                     Address = TbxAddress.Text,
                     Created_at = DateTime.Now,
-                    Account_type = TbxAccountNumber.Text
+                    Account_type = TbxAccountType.Text
                 };
 
                 Globals.dbContext.Customers.Add(newCustomer);
@@ -105,9 +105,8 @@ namespace Day07AzureDb
             if (saveFileDialog.ShowDialog() == true)
             {
                 string fileName = saveFileDialog.FileName;
-                var user = (from userOne in Globals.dbContext.UserEmployees
-                            where userOne.User_id == 1
-                            select userOne).FirstOrDefault();
+
+                var user = LoginPage.CurrentUser.users;
 
                 var userInfoLines = new List<string>();
 
