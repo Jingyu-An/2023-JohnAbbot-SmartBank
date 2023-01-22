@@ -81,8 +81,8 @@ namespace Day07AzureDb
 
         public void FindUser()
         {
-            Users user = LoginPage.CurrentUser.users;
-            Customer customer = LoginPage.CurrentUser.customer;
+            Users user = Globals.users;
+            Customer customer = Globals.customer;
 
             if (customer != null)
             {

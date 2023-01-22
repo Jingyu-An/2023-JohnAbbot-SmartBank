@@ -54,7 +54,7 @@ namespace Day07AzureDb
                 var newAccount = new Account
                 {
                     Customer_id = newCustomer.Customer_id,
-                    User_id = LoginPage.CurrentUser.users.User_id,
+                    User_id = Globals.users.User_id,
                     Account_balance = TbxAccountBalance.Text,
                 };
                 Globals.dbContext.Accounts.Add(newAccount);
@@ -73,8 +73,8 @@ namespace Day07AzureDb
 
         public void FindUser()
         {
-            Users user = LoginPage.CurrentUser.users;
-            Customer customer = LoginPage.CurrentUser.customer;
+            Users user = Globals.users;
+            Customer customer = Globals.customer;
 
 
 
@@ -113,7 +113,7 @@ namespace Day07AzureDb
             {
                 string fileName = saveFileDialog.FileName;
 
-                var user = LoginPage.CurrentUser.users;
+                var user = Globals.users;
 
                 var userInfoLines = new List<string>();
 
@@ -122,7 +122,7 @@ namespace Day07AzureDb
                     userInfoLines.Add($"{user.Full_name};{user.Email};{user.Password};{user.Phone_number};{user.Account_type}");
                 }
 
-                var customer = LoginPage.CurrentUser.customer;
+                var customer = Globals.customer;
 
                 if (customer != null)
                 {
@@ -137,7 +137,7 @@ namespace Day07AzureDb
         {
             try
             {
-                Customer customer = LoginPage.CurrentUser.customer;
+                Customer customer = Globals.customer;
                 Customer updateCustomer = Globals.dbContext.Customers.FirstOrDefault(c => c.Customer_id == customer.Customer_id);
 
                 if (updateCustomer != null)
