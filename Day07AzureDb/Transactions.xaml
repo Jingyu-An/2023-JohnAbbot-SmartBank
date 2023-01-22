@@ -6,23 +6,40 @@
       xmlns:local="clr-namespace:Day07AzureDb"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Transactions">
+      Title="Transactions"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      Background="white">
+
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
         <Label HorizontalAlignment="Left" Height="28" Margin="48,-2,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Amount" HorizontalAlignment="Left" Height="28" Margin="55,138,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Account" HorizontalAlignment="Left" Height="28" Margin="55,88,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Sender" HorizontalAlignment="Left" Height="28" Margin="55,45,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Description" HorizontalAlignment="Left" Height="28" Margin="55,266,0,0" VerticalAlignment="Top" Width="84"/>
-        <Label Content="Recipient" HorizontalAlignment="Left" Height="28" Margin="55,223,0,0" VerticalAlignment="Top" Width="84"/>
-        <Button x:Name="BtnSend" Content="Send Money" HorizontalAlignment="Left" Height="32" Margin="477,250,0,0" VerticalAlignment="Top" Width="96" Click="Button_Click"/>
-        <Label x:Name="LblName" HorizontalAlignment="Left" Height="28" Margin="192,45,0,0" VerticalAlignment="Top" Width="320" RenderTransformOrigin="2.085,0.773"/>
-        <ComboBox x:Name="ComboBoxAccounts" HorizontalAlignment="Left" Height="22" Margin="192,88,0,0" VerticalAlignment="Top" Width="238" SelectionChanged="ComboBoxAccounts_SelectionChanged"/>
-        <TextBox x:Name="TbxAmount" HorizontalAlignment="Left" Height="22" Margin="192,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
-        <TextBox x:Name="TbxRecipient" HorizontalAlignment="Left" Height="22" Margin="192,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
-        <TextBox x:Name="TbxDesc" HorizontalAlignment="Left" Height="22" Margin="192,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
-        <Label Content="Current Balance" HorizontalAlignment="Left" Height="28" Margin="562,85,0,0" VerticalAlignment="Top" Width="100"/>
-        <Label Name ="LblCurrentBalance" HorizontalAlignment="Left" Height="33" Margin="562,116,0,0" VerticalAlignment="Top" Width="156"/>
-        <Label Content="$" HorizontalAlignment="Left" Height="34" Margin="532,118,0,0" VerticalAlignment="Top" Width="25"/>
+        <Label Content="Amount:" Height="28" FontWeight="Bold" Margin="198,121,503,301"/>
+        <Label Content="Account:" Height="28" Width="84" FontWeight="Bold" Margin="198,173,503,249"/>
+        <Label Content="Sender:" Height="28" Margin="198,29,503,393" FontWeight="Bold"/>
+        <Label Content="Description:" Height="28" Margin="198,268,489,154" FontWeight="Bold"/>
+        <Label Content="Recipient:" Height="28" Width="84" Margin="198,71,503,351" FontWeight="Bold"/>
+        <ComboBox x:Name="ComboBoxAccounts" Height="22" SelectionChanged="ComboBoxAccounts_SelectionChanged" Margin="287,173,260,0" VerticalAlignment="Top"/>
+
+
+        <Button x:Name="BtnSend" materialDesign:ElevationAssist.Elevation="Dp0" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Send Money" Background="DeepSkyBlue" BorderBrush="LightSkyBlue" Click="Button_Click" RenderTransformOrigin="0.125,0.591" Margin="323,328,327,90"/>
+
+        <Label x:Name="LblName" HorizontalAlignment="Left" Height="28" Margin="287,29,0,0" VerticalAlignment="Top" Width="224" RenderTransformOrigin="2.085,0.773" />
+        <TextBox x:Name="TbxAmount" HorizontalAlignment="Left" Height="22" Margin="287,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
+        <TextBox x:Name="TbxRecipient" HorizontalAlignment="Left" Height="22" Margin="287,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
+        <TextBox x:Name="TbxDesc" HorizontalAlignment="Left" Height="22" Margin="287,268,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
+        <Label Content="Current Balance:" HorizontalAlignment="Left" Height="28" Margin="198,225,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold"/>
+        <Label Name ="LblCurrentBalance" HorizontalAlignment="Left" Height="26" Margin="323,226,0,0" VerticalAlignment="Top" Width="202"/>
+        <Label Content="$" HorizontalAlignment="Left" Height="26" Margin="300,225,0,0" VerticalAlignment="Top" Width="18"/>
+        <Label Content="$" HorizontalAlignment="Left" Height="26" Margin="269,121,0,0" VerticalAlignment="Top" Width="18"/>
+
     </Grid>
 </Page>

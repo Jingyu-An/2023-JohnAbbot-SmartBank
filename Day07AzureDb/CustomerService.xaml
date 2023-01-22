@@ -6,7 +6,9 @@
       xmlns:local="clr-namespace:Day07AzureDb"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CustomerService">
+      Title="CustomerService"
+            xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}">
 
     <Grid>
         <!-- Set the styles for the tool bar. -->
@@ -28,27 +30,26 @@
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="Email:" MinWidth="60"/>
+                        <Label Content="Email:" MinWidth="60" FontWeight="Bold"/>
                         <TextBox x:Name="TbxEmail" Width="500" Background="{x:Null}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="Name:" MinWidth="60"/>
+                        <Label Content="Name:" MinWidth="60" FontWeight="Bold"/>
                         <TextBox x:Name="TbxName" Width="500" Background="{x:Null}"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="Phone:" MinWidth="60"/>
-                        <TextBox x:Name="TbxPhone" PreviewTextInput="TbxPhone_PreviewTextInput" Width="500" Background="{x:Null}"/>
+                        <Label Content="Phone:" MinWidth="60" FontWeight="Bold"/>
+                        <TextBox x:Name="TbxPhone" PreviewTextInput="TbxPhone_PreviewTextInput" Width="500" Background="{x:Null}" />
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <Label Content="Subject:" MinWidth="60"/>
-                        <TextBox x:Name="TbxSubject" Width="500" Background="{x:Null}"/>
+                        <Label Content="Subject:" MinWidth="60" FontWeight="Bold"/>
+                        <TextBox x:Name="TbxSubject" Width="500" Background="{x:Null}" Margin="0 0 0 15"/>
                     </StackPanel>
                 </StackPanel>
-                <Button x:Name="BtnSend" Width="90" Content="Send" FontSize="20" Margin="10" Click="BtnSend_Click"/>
             </StackPanel>
 
             <!-- This tool bar contains all the editing buttons. -->
-            <ToolBar Name="mainToolBar" Height="30" DockPanel.Dock="Top">
+            <ToolBar Name="mainToolBar" Height="30" DockPanel.Dock="Top" Width="434">
                 <Button Style="{StaticResource formatTextStyle}" Command="EditingCommands.ToggleBold" ToolTip="Bold">
                     <TextBlock FontWeight="Bold">B</TextBlock>
                 </Button>
@@ -63,10 +64,12 @@
                 </Button>
                 <Label x:Name="LblFileName" />
             </ToolBar>
-
-            <!-- By default pressing tab moves focus to the next control. Setting AcceptsTab to true allows the 
+            <StackPanel>
+                <!-- By default pressing tab moves focus to the next control. Setting AcceptsTab to true allows the 
            RichTextBox to accept tab characters. -->
-            <RichTextBox x:Name="RTBBody" AcceptsTab="True" Background="{x:Null}"></RichTextBox>
+                <RichTextBox x:Name="RTBBody" AcceptsTab="True" Background="{x:Null}" Height="217" Width="706" Margin="10 10 10 10"></RichTextBox>
+                <Button x:Name="BtnSend"  materialDesign:ElevationAssist.Elevation="Dp0" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Submit" Background="DeepSkyBlue" BorderBrush="LightSkyBlue" Click="BtnSend_Click" RenderTransformOrigin="0.125,0.591" Width="100" Margin="0 15 0 0"/>
+            </StackPanel>
         </DockPanel>
     </Grid>
 </Page>
