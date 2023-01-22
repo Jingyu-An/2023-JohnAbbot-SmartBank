@@ -174,6 +174,7 @@ namespace Day07AzureDb
         private void BtnPrint_Click(object sender, EventArgs e)
         {
             PrintDialog printDialog = new PrintDialog();
+
             if (printDialog.ShowDialog() == true)
             {
                 printDialog.PrintVisual(this, "Printing");
