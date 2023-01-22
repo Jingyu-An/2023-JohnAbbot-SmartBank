@@ -36,16 +36,17 @@ namespace Day07AzureDb
         public static double usttb = 0;
         public static double ustts = 0;
         public static double usDeal = 0;
+
         public List<string> CurrencyFromList { get; set; } = new List<string>()
         {
             "CANADA - CAD",
             "US     - USD",
             "KOREA  - KRW",
-           
+
         };
         public List<string> CurrencyToList { get; set; } = new List<string>()
         {
-         
+
             "US     - USD",
             "KOREA  - KRW",
             "CANADA - CAD",
@@ -61,11 +62,11 @@ namespace Day07AzureDb
 
         private void AddCountryListAll()
         {
-   
-                CurrencyFromList.ForEach(currencyFrom =>
-                {              
-                    ComboboxFrom.Items.Add(currencyFrom);
-               });
+
+            CurrencyFromList.ForEach(currencyFrom =>
+            {
+                ComboboxFrom.Items.Add(currencyFrom);
+            });
 
             CurrencyToList.ForEach(currencyTo =>
             {
@@ -119,7 +120,7 @@ namespace Day07AzureDb
             bool kor = unit.Equals("KRW");
             bool cad = unit.Equals("CAD");
 
-            
+
 
 
 
@@ -129,11 +130,11 @@ namespace Day07AzureDb
                 if (cad)
                 {
                     countryName = countryName.Replace("캐나다 달러", "CANADA");
-                    
+
                     cadttb = (Double.Parse(ttb));
                     cadtts = (Double.Parse(tts));
                     cadDeal = (Double.Parse(deal));
-                    
+
                     ttb = ttb.Replace(ttb, "0");
                     tts = tts.Replace(tts, "0");
                     deal = deal.Replace(deal, "1");
@@ -147,14 +148,14 @@ namespace Day07AzureDb
                     krwtts = (Double.Parse(tts));
                     krwDeal = (Double.Parse(deal));
 
-                    
-                    ttb = ttb.Replace(ttb,cadttb.ToString());
+
+                    ttb = ttb.Replace(ttb, cadttb.ToString());
                     tts = tts.Replace(tts, cadtts.ToString());
                     deal = deal.Replace(deal, cadDeal.ToString());
-                    
+
 
                 }
-                else if(us)
+                else if (us)
                 {
                     countryName = countryName.Replace("미국 달러", "US");
 
@@ -164,7 +165,7 @@ namespace Day07AzureDb
 
                     usttb = cadttb / usttb;
                     ustts = cadtts / ustts;
-                    usDeal= cadDeal / usDeal;
+                    usDeal = cadDeal / usDeal;
 
 
                     ttb = ttb.Replace(ttb, usttb.ToString("F"));
@@ -187,10 +188,20 @@ namespace Day07AzureDb
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DateTime currDatePicker = CurrDatePicker.SelectedDate.Value;
+            currencyList.Clear();
+            LblConvert.Content = "";
+            string total = "";
+
+            if (CurrDatePicker.SelectedDate == null)
+            {
+                MessageBox.Show("Please select a due date");
+                return;
+
+            }
+
             string strURL = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey="
                 + "UKWgdmFHL143H1oAPWs9IuGM2y25uiA2&searchdate=" +
-               currDatePicker.ToString("yyyyMMdd") + "&data=AP01";
+               CurrDatePicker.SelectedDate.Value.ToString("yyyyMMdd") + "&data=AP01";
 
 
             HttpWebRequest hwr = (HttpWebRequest)WebRequest.Create(strURL);
@@ -212,11 +223,67 @@ namespace Day07AzureDb
                 hwrResult.Close();
 
             }
+
+            // ComboBox combo = (ComboBox)sender;
+            int amount = int.Parse(TxtAmount.Text);
+
+            string currencyFrom = "";
+            string currencyTo = "";
+
+
+            currencyTo = ComboboxTo.SelectedItem.ToString();
+            currencyFrom = ComboboxFrom.SelectedItem.ToString();
+
+            if (currencyFrom == "CANADA - CAD" && currencyTo == "US     - USD")
+            {
+                total = (amount * (usDeal / cadDeal)).ToString("F");
+                LblConvert.Content = total;
+                total = "";
+            }
+
+
+            if (currencyFrom == "CANADA - CAD" && currencyTo == "KOREA  - KRW")
+            {
+                total = (amount * (cadDeal / krwDeal)).ToString("F");
+                LblConvert.Content = total;
+                total = "";
+            }
+
+
+            if (currencyFrom == "KOREA  - KRW" && currencyTo == "CANADA - CAD")
+            {
+                total = (amount * (cadDeal / (krwDeal * 1000000))).ToString("F");
+                LblConvert.Content = total;
+                total = "";
+            }
+
+            if (currencyFrom == "US     - USD" && currencyTo == "CANADA - CAD")
+            {
+                total = (amount * ((cadDeal / 1000) / usDeal)).ToString("F");
+                LblConvert.Content = total;
+                total = "";
+            }
+            if (currencyFrom == "US     - USD" && currencyTo == "KOREA  - KRW")
+            {
+                total = (amount * (krwDeal / usDeal)).ToString("F");
+                LblConvert.Content = total;
+                total = "";
+
+            }
+            if (currencyFrom == "KOREA  - KRW" && currencyTo == "US     - USD")
+            {
+
+                total = (amount * (usDeal / (krwDeal * 1000))).ToString("F");
+                LblConvert.Content = total;
+                total = "";
+            }
+
+
         }
 
         private void ComboboxFrom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int amount = int.Parse(TxtAmount.Text);
+
 
         }
 

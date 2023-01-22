@@ -34,7 +34,7 @@
         <TextBox  Grid.Column="1" Margin="213,186,194,-176" materialDesign:HintAssist.Hint="Enter your address" Name="TbxAddress"/>
 
         <TextBlock  Text="Phone Number:" Margin="141,0,566,-224" Grid.ColumnSpan="2" x:Name="LblFullPhoneNumber" FontWeight="Bold" VerticalAlignment="Bottom"/>
-        <TextBox  Grid.Column="1" Margin="262,235,194,-224" materialDesign:HintAssist.Hint="Enter your phone number" Name="TbxPhoneNumber" />
+        <TextBox  Grid.Column="1" Margin="262,235,194,-224" PreviewTextInput="TbxPhoneNumber_PreviewTextInput" materialDesign:HintAssist.Hint="Enter your phone number" Name="TbxPhoneNumber" />
 
         <TextBlock Margin="141,0,563,-317" Grid.ColumnSpan="2" x:Name="LblAccountType" FontWeight="Bold" VerticalAlignment="Bottom"><Run Text="Account "/><Run Language="ko-kr" Text="Type"/><Run Text=":"/></TextBlock>
         <TextBox Grid.Column="1" Margin="262,332,194,-322" materialDesign:HintAssist.Hint="Enter your account type" Name="TbxAccountType" />

@@ -79,6 +79,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="HistoryTransaction.xaml.cs">
+      <DependentUpon>HistoryTransaction.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\202301210350381_updateDb.cs" />
     <Compile Include="Migrations\202301210350381_updateDb.designer.cs">
       <DependentUpon>202301210350381_updateDb.cs</DependentUpon>
@@ -133,6 +136,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="CustomerService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HistoryTransaction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

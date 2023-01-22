@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day07AzureDb", "Day07AzureD
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SmartBankApp", "..\SmartBankApp\SmartBankApp.vdproj", "{C1BF2F13-308D-4ED0-BE79-70FD81B53EEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartBankTest", "..\SmartBankTest\SmartBankTest.csproj", "{CEC0C32D-BC59-431B-87E5-6783244E5998}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{9B4A7B91-BF04-48FA-B57C-6F84243536A4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C1BF2F13-308D-4ED0-BE79-70FD81B53EEE}.Debug|Any CPU.ActiveCfg = Debug
 		{C1BF2F13-308D-4ED0-BE79-70FD81B53EEE}.Release|Any CPU.ActiveCfg = Release
+		{CEC0C32D-BC59-431B-87E5-6783244E5998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC0C32D-BC59-431B-87E5-6783244E5998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC0C32D-BC59-431B-87E5-6783244E5998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC0C32D-BC59-431B-87E5-6783244E5998}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

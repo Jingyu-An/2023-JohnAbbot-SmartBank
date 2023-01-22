@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.Pkcs;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -59,14 +60,15 @@ namespace Day07AzureDb
                     Withdrawal_amount = amount,
                     Date_operation = DateTime.Now,
                     Account_id = selectedAccount,
-                    Description = TbxDesc.Text
+                    Description = TbxDesc.Text,
+                    Other_account_id = accountRecipient.Customer_id
                 };
           
                 accountRecipient.Account_balance = (int.Parse(accountRecipient.Account_balance) + amount).ToString();
                 
                 accountSender.Account_balance = (balance - amount).ToString();
                
-
+            
                 Globals.dbContext.Operations.Add(newOperations);
              
                 Globals.dbContext.SaveChanges();
@@ -132,5 +134,10 @@ namespace Day07AzureDb
 
         }
 
+        private void TbxAmount_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
     }
 }
