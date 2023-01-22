@@ -12,16 +12,19 @@ namespace Day07AzureDb
     {
         public static string _account_balance = "0";
 
-        public Account() { }
+        public Account() 
+        { 
+            Bank_branch_address = "Smart Bank in Montreal";
+            Phone_number_branch = "4340000000";
+        }
 
         public Account(int customer_id, int user_id, string bank_branch_address, string phone_number_branch, string account_balance)
         {
             Customer_id = customer_id;
             User_id = user_id;
+            Account_balance = account_balance;
             Bank_branch_address = bank_branch_address;
             Phone_number_branch = phone_number_branch;
-            Account_balance = account_balance;
-
         }
 
         [Key]
