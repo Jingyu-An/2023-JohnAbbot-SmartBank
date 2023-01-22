@@ -46,7 +46,7 @@
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Convert" 
                            Style="{StaticResource mystyle}"/>
-                    <Label Content="{Binding SelectedItem, ElementName=ComboboxRate}"
+                    <Label Name ="LblConvert" Content="{Binding SelectedItem, ElementName=ComboboxRate}"
                            Style="{StaticResource mystyle}" Width="230"/>
                 </StackPanel>
 

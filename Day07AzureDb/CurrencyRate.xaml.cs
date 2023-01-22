@@ -36,6 +36,7 @@ namespace Day07AzureDb
         public static double usttb = 0;
         public static double ustts = 0;
         public static double usDeal = 0;
+
         public List<string> CurrencyFromList { get; set; } = new List<string>()
         {
             "CANADA - CAD",
@@ -187,6 +188,8 @@ namespace Day07AzureDb
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            currencyList.Clear();
+
             DateTime currDatePicker = CurrDatePicker.SelectedDate.Value;
             string strURL = "https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey="
                 + "UKWgdmFHL143H1oAPWs9IuGM2y25uiA2&searchdate=" +
@@ -212,11 +215,62 @@ namespace Day07AzureDb
                 hwrResult.Close();
 
             }
+
+           // ComboBox combo = (ComboBox)sender;
+            int amount = int.Parse(TxtAmount.Text);
+            string total = "";
+            string currencyFrom = "";
+            string currencyTo = "";
+
+            
+            currencyTo = ComboboxTo.SelectedItem.ToString();
+            currencyFrom = ComboboxFrom.SelectedItem.ToString();
+
+            if (currencyFrom == "CANADA - CAD" && currencyTo == "US     - USD") 
+            {
+                
+                total = (amount * (usDeal*1000 / cadDeal*1000)).ToString("F");
+                LblConvert.Content = total;
+            }            
+            
+            
+            if (currencyFrom == "CANADA - CAD" && currencyTo == "KOREA  - KRW")
+            {
+             
+                total = (amount * cadDeal).ToString("F");
+                LblConvert.Content = total;
+            }
+
+
+            if (currencyFrom == "KOREA  - KRW" && currencyTo == "CANADA - CAD")
+            {
+                total = (amount * (cadDeal/krwDeal)).ToString("F");
+                LblConvert.Content = total;
+            }
+
+            if (currencyFrom == "US     - USD" && currencyTo == "CANADA - CAD")
+            {
+                total = (amount * (cadDeal / usDeal)).ToString("F");
+                LblConvert.Content = total;
+            }
+            if (currencyFrom == "US     - USD" && currencyTo == "KOREA  - KRW") 
+            {
+                total = (amount * (krwDeal / usDeal)).ToString("F");
+                LblConvert.Content = total;
+
+            }
+            if (currencyFrom == "KOREA  - KRW" && currencyTo == "US     - USD")
+            {
+                total = (amount * (krwDeal/usDeal)).ToString("F");
+                LblConvert.Content = total;
+            }
+
+
         }
 
         private void ComboboxFrom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int amount = int.Parse(TxtAmount.Text);
+            
 
         }
 
