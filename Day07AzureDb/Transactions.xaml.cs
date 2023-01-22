@@ -23,6 +23,8 @@ namespace Day07AzureDb
     public partial class Transactions : Page
     {
         public static int selectedAccount;
+        Account accountRecipient;
+        Account accountSender;
         public Transactions()
         {
             InitializeComponent();
@@ -54,16 +56,23 @@ namespace Day07AzureDb
             {
                 var newOperations = new Operation
                 {
-                    Withdrawal_amount = int.Parse(TbxAmount.Text),
+                    Withdrawal_amount = amount,
                     Date_operation = DateTime.Now,
                     Account_id = selectedAccount,
                     Description = TbxDesc.Text
                 };
+          
+                accountRecipient.Account_balance = (int.Parse(accountRecipient.Account_balance) + amount).ToString();
+                
+                accountSender.Account_balance = (balance - amount).ToString();
+               
 
                 Globals.dbContext.Operations.Add(newOperations);
+             
                 Globals.dbContext.SaveChanges();
 
                 MessageBox.Show("Send money successfully!");
+                LblCurrentBalance.Content = accountSender.Account_balance;
             }
 
         }
@@ -85,9 +94,7 @@ namespace Day07AzureDb
                 {
                     ComboBoxAccounts.Items.Add(account.accountID);
                 }
-
-
-            }
+           }
             else if (user != null)
             {
                 LblName.Content = user.Full_name + " (Employee)";
@@ -103,11 +110,9 @@ namespace Day07AzureDb
 
             int recipeint = int.Parse(TbxRecipient.Text);
 
-            Account account = Globals.dbContext.Accounts.FirstOrDefault(c => c.Customer_id == recipeint);
+            accountRecipient = Globals.dbContext.Accounts.FirstOrDefault(a => a.Account_id == recipeint);
 
-            MessageBox.Show(account.Customer_id.ToString());
-
-            if (account.Customer_id.ToString() == null)
+            if (accountRecipient.Account_id.ToString() == null)
             {
                 return false;
             }
@@ -118,11 +123,11 @@ namespace Day07AzureDb
         private void ComboBoxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox accounts = (ComboBox)sender;
-
             if (accounts != null)
             {
                 selectedAccount = int.Parse(accounts.SelectedItem.ToString());
-                LblCurrentBalance.Content = Globals.dbContext.Accounts.FirstOrDefault(a => a.Account_id == selectedAccount).Account_balance;
+                accountSender = Globals.dbContext.Accounts.FirstOrDefault(a => a.Account_id == selectedAccount);
+                LblCurrentBalance.Content = accountSender.Account_balance;
             }
 
         }
