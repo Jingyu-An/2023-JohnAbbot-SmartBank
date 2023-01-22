@@ -66,7 +66,7 @@ namespace Day07AzureDb
             MainWindow mainWindow = new MainWindow();
             if (user != null)
             {
-                CurrentUser.users = user;
+                Globals.users = user;
 
                 Application.Current.MainWindow = mainWindow;
                 mainWindow.Show();
@@ -74,7 +74,7 @@ namespace Day07AzureDb
             }
             else if (customer != null)
             {
-                CurrentUser.customer = customer;
+                Globals.customer = customer;
                 var result = (from accounts in Globals.dbContext.Accounts
                               where accounts.Customer_id == customer.Customer_id
                               join users in Globals.dbContext.UserEmployees
@@ -82,7 +82,7 @@ namespace Day07AzureDb
                               from users in u
                               select users).FirstOrDefault();
 
-                CurrentUser.users = result;
+                Globals.users = result;
 
                 Application.Current.MainWindow = mainWindow;
                 mainWindow.Show();
@@ -94,13 +94,6 @@ namespace Day07AzureDb
             }
         }
 
-
-        public static class CurrentUser
-        {
-            public static Users users { get; set; }
-            public static Customer customer { get; set; }
-            
-        }
 
         private void BtnSignup_Click(object sender, RoutedEventArgs e)
         {

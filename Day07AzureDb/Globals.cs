@@ -9,5 +9,7 @@ namespace Day07AzureDb
     internal class Globals
     {
         static internal SmartBankDbContext dbContext;
+        public static Users users { get; set; }
+        public static Customer customer { get; set; }
     }
 }

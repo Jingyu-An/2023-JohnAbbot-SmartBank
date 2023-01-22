@@ -66,8 +66,8 @@ namespace Day07AzureDb
                         mail.BodyEncoding = Encoding.UTF8;
                         mail.Body = $"- Name: {TbxName.Text}\n- Phone: {TbxPhone.Text}\n\n" +
                             StringFromRichTextBox(RTBBody) + 
-                            $"- Employee: {LoginPage.CurrentUser.users.Full_name}\n" +
-                            $"- Email: {LoginPage.CurrentUser.users.Email}";
+                            $"- Employee: {Globals.users.Full_name}\n" +
+                            $"- Email: {Globals.users.Email}";
 
                         mail.IsBodyHtml = isBodyHtml;
 

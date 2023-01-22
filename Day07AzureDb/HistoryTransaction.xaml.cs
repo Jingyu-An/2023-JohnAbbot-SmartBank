@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiveCharts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,9 @@ namespace Day07AzureDb
         public static int selectedAccount;
         List<Operation> operationList = new List<Operation>();
 
+        public ChartValues<int> Values { get; set; }
+
+
         public HistoryTransaction()
         {
             InitializeComponent();
@@ -40,8 +44,8 @@ namespace Day07AzureDb
         }
         public void FindUser()
         {
-            Users user = LoginPage.CurrentUser.users;
-            Customer customer = LoginPage.CurrentUser.customer;
+            Users user = Globals.users;
+            Customer customer = Globals.customer;
 
             if (customer != null)
             {
@@ -68,6 +72,22 @@ namespace Day07AzureDb
 
                 HistoryLv.ItemsSource = result;
                 HistoryLv.Items.Refresh();
+                try
+                {
+                    Values = new ChartValues<int>();
+                    result.ForEach(o =>
+                    {
+                        {
+                            Values.Add(o.Withdrawal_amount);
+                        };
+                    });
+
+                    DataContext = this;
+                }
+                catch (Exception ex) when (ex is NullReferenceException)
+                {
+                    MessageBox.Show("null");
+                }
             }
 
         }
