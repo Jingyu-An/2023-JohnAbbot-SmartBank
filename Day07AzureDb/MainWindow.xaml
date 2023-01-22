@@ -123,6 +123,18 @@
                     <Frame x:Name="FramePage6" NavigationUIVisibility="Hidden" Source="HistoryTransaction.xaml"
                            Style="{StaticResource FrameStyle}"/>
                 </TabItem>
+                <TabItem x:Name="TabPage7" Header="Charts" Visibility="Visible" HorizontalAlignment="Center"
+                         Style="{StaticResource TabStyle}" BorderBrush="{x:Null}" Height="60" Margin="-1,0,1,0" VerticalAlignment="Center">
+                    <TabItem.Background>
+                        <LinearGradientBrush EndPoint="0,1">
+                            <GradientStop Color="LightBlue"/>
+                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="LightBlue" Offset="0.76"/>
+                        </LinearGradientBrush>
+                    </TabItem.Background>
+                    <Frame x:Name="FramePage7" NavigationUIVisibility="Hidden" Source="Chart.xaml"
+                           Style="{StaticResource FrameStyle}"/>
+                </TabItem>
             </TabControl>
         </StackPanel>
     </DockPanel>
