@@ -76,8 +76,8 @@ namespace Day07AzureDb
         {
             Users user = LoginPage.CurrentUser.users;
             Customer customer = LoginPage.CurrentUser.customer;
-            
-            
+
+
 
             if (customer != null)
             {
@@ -169,6 +169,15 @@ namespace Day07AzureDb
             TbxPassword.Text = "";
             TbxAddress.Text = "";
             TbxAccountNumber.Text = "";
+        }
+
+        private void BtnPrint_Click(object sender, EventArgs e)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            if (printDialog.ShowDialog() == true)
+            {
+                printDialog.PrintVisual(this, "Printing");
+            }
         }
     }
 }
