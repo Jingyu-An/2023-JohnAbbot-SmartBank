@@ -34,7 +34,7 @@
 
         <Label x:Name="LblName" HorizontalAlignment="Left" Height="28" Margin="287,29,0,0" VerticalAlignment="Top" Width="224" RenderTransformOrigin="2.085,0.773" FontSize="14" />
         <TextBox x:Name="TbxAmount" PreviewTextInput="TbxAmount_PreviewTextInput" HorizontalAlignment="Left" Height="22" Margin="287,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238"/>
-        <TextBox x:Name="TbxRecipient" HorizontalAlignment="Left" Height="22" Margin="287,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
+        <TextBox x:Name="TbxRecipient" PreviewTextInput="TbxAmount_PreviewTextInput" HorizontalAlignment="Left" Height="22" Margin="287,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
         <TextBox x:Name="TbxDesc" HorizontalAlignment="Left" Height="22" Margin="287,268,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238"/>
         <Label Content="Current Balance:" HorizontalAlignment="Left" Height="28" Margin="198,225,0,0" VerticalAlignment="Top" Width="102" FontWeight="Bold"/>
         <Label Name ="LblCurrentBalance" HorizontalAlignment="Left" Height="26" Margin="323,226,0,0" VerticalAlignment="Top" Width="202"/>
