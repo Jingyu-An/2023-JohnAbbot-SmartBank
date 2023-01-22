@@ -9,7 +9,7 @@
       Title="Transactions"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-      Background="white">
+      >
 
 
     <Grid>
