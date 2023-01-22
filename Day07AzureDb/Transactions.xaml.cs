@@ -22,6 +22,7 @@ namespace Day07AzureDb
     /// </summary>
     public partial class Transactions : Page
     {
+        public static int selectedAccount;
         public Transactions()
         {
             InitializeComponent();
@@ -38,10 +39,33 @@ namespace Day07AzureDb
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Operation operations = new Operation(0, 0, 0, "text", 0);
-            Globals.dbContext.Operations.Add(operations);
-            Globals.dbContext.SaveChanges();
-            MessageBox.Show("Send money successfully!");
+            int amount = int.Parse(TbxAmount.Text);
+            int balance = int.Parse(LblCurrentBalance.Content.ToString());
+
+            if (amount > balance)
+            {
+                MessageBox.Show("Balance is insufficient.");
+            }
+            else if (!FindRecipient())
+            {
+                MessageBox.Show("The recipient could not be found.");
+            }
+            else
+            {
+                var newOperations = new Operation
+                {
+                    Withdrawal_amount = int.Parse(TbxAmount.Text),
+                    Date_operation = DateTime.Now,
+                    Account_id = selectedAccount,
+                    Description = TbxDesc.Text
+                };
+
+                Globals.dbContext.Operations.Add(newOperations);
+                Globals.dbContext.SaveChanges();
+
+                MessageBox.Show("Send money successfully!");
+            }
+
         }
 
         public void FindUser()
@@ -74,13 +98,30 @@ namespace Day07AzureDb
                 BtnSend.IsEnabled = false;
             }
         }
+        public bool FindRecipient()
+        {
+
+            int recipeint = int.Parse(TbxRecipient.Text);
+
+            Account account = Globals.dbContext.Accounts.FirstOrDefault(c => c.Customer_id == recipeint);
+
+            MessageBox.Show(account.Customer_id.ToString());
+
+            if (account.Customer_id.ToString() == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         private void ComboBoxAccounts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ComboBox accounts = (ComboBox)sender;
 
             if (accounts != null)
             {
-                int selectedAccount = int.Parse(accounts.SelectedItem.ToString());
+                selectedAccount = int.Parse(accounts.SelectedItem.ToString());
                 LblCurrentBalance.Content = Globals.dbContext.Accounts.FirstOrDefault(a => a.Account_id == selectedAccount).Account_balance;
             }
 

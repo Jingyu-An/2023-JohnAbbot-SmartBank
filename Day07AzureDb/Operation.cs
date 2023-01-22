@@ -11,6 +11,13 @@ namespace Day07AzureDb
     public class Operation
     {
         public static int _transaction_id = 1;
+
+        public Operation()
+        {
+            Transaction_id = _transaction_id++;
+        }
+
+      /*
         public Operation(int deposit_amount, int withdrawal_amount, int other_account_id, string description, transfer_type_enum transfer_Type)
         {
             Deposit_amount = deposit_amount;
@@ -21,7 +28,7 @@ namespace Day07AzureDb
             Date_operation = DateTime.Now;
             Transaction_id = _transaction_id++;
         }
-
+        */
         [Key]
         public int Transaction_id { get; set; }
         public int Deposit_amount { get; set; }
