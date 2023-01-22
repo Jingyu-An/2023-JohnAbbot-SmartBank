@@ -59,14 +59,15 @@ namespace Day07AzureDb
                     Withdrawal_amount = amount,
                     Date_operation = DateTime.Now,
                     Account_id = selectedAccount,
-                    Description = TbxDesc.Text
+                    Description = TbxDesc.Text,
+                    Other_account_id = accountRecipient.Customer_id
                 };
           
                 accountRecipient.Account_balance = (int.Parse(accountRecipient.Account_balance) + amount).ToString();
                 
                 accountSender.Account_balance = (balance - amount).ToString();
                
-
+            
                 Globals.dbContext.Operations.Add(newOperations);
              
                 Globals.dbContext.SaveChanges();
