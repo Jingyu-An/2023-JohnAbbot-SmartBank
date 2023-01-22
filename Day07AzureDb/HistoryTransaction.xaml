@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
       xmlns:local="clr-namespace:Day07AzureDb"
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="Day07AzureDb.HistoryTransaction"
       mc:Ignorable="d" 
@@ -29,16 +30,21 @@
         <Label Content="$" HorizontalAlignment="Left" Height="26" Margin="308,74,0,0" VerticalAlignment="Top" Width="18"/>
 
         <Button x:Name="BtnSend" materialDesign:ElevationAssist.Elevation="Dp0" materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="Search" Background="DeepSkyBlue" BorderBrush="LightSkyBlue" Click="Button_Click" RenderTransformOrigin="0.125,0.591" Margin="608,65,42,353"/>
-        <ListView Name ="HistoryLv" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="0,139,0,0" HorizontalAlignment="Center" Width="650" Height="194" VerticalAlignment="Top" Grid.Row="1" >
+        <ListView Name ="HistoryLv" d:ItemsSource="{d:SampleData ItemCount=3}" HorizontalAlignment="Center" Width="650" Height="171" VerticalAlignment="Top" Margin="0,129,0,0" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Date" Width="150"  DisplayMemberBinding="{Binding Date_operation}" />
                     <GridViewColumn Header="Reciever" Width="150" DisplayMemberBinding="{Binding Other_account_id}" />
                     <GridViewColumn Header="Amount" Width="150" DisplayMemberBinding="{Binding Withdrawal_amount}" />
                     <GridViewColumn Header="Description" Width="150" DisplayMemberBinding="{Binding Description}" />
-     
+
                 </GridView>
             </ListView.View>
         </ListView>
+        <lvc:CartesianChart Height="150" Grid.ColumnSpan="2" Margin="4,295,11,5">
+            <lvc:CartesianChart.Series>
+                <lvc:LineSeries Values="{Binding Values}"/>
+            </lvc:CartesianChart.Series>
+        </lvc:CartesianChart>
     </Grid>
 </Page>
