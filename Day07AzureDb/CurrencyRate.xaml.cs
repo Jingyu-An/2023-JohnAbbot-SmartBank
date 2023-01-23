@@ -120,11 +120,6 @@ namespace Day07AzureDb
             bool kor = unit.Equals("KRW");
             bool cad = unit.Equals("CAD");
 
-
-
-
-
-
             if (us || kor || cad)
             {
                 if (cad)
@@ -148,12 +143,9 @@ namespace Day07AzureDb
                     krwtts = (Double.Parse(tts));
                     krwDeal = (Double.Parse(deal));
 
-
                     ttb = ttb.Replace(ttb, cadttb.ToString());
                     tts = tts.Replace(tts, cadtts.ToString());
                     deal = deal.Replace(deal, cadDeal.ToString());
-
-
                 }
                 else if (us)
                 {
@@ -167,12 +159,9 @@ namespace Day07AzureDb
                     ustts = cadtts / ustts;
                     usDeal = cadDeal / usDeal;
 
-
                     ttb = ttb.Replace(ttb, usttb.ToString("F"));
                     tts = tts.Replace(tts, ustts.ToString("F"));
                     deal = deal.Replace(deal, usDeal.ToString("F"));
-
-
                 }
 
 
