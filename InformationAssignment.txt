@@ -1,0 +1,10 @@
+Smart App
+
+Team members:
+- Jingyu An
+- Hyunju Roh
+- Patrick Loutfi
+
+Git URL: https://github.com/PatrickLTI/Smart_Banking_Application
+Trello URL: https://trello.com/b/wUu0ZAeN/%ED%8A%B8%EB%A6%AC%EC%98%A4-%ED%8C%80
+Name of server: smartbank.database.windows.net
